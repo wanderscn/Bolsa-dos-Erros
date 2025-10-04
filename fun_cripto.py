@@ -64,7 +64,7 @@ def criptomoeda():
         time.sleep(3)
         venceu = True
     return venceu
-
+#a
 
 
 
