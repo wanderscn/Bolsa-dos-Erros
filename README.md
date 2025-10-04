@@ -15,4 +15,7 @@ Terá apenas um texto com algumas informações incorretas o jogador deve encont
 Sistema de tempo decrescente, o jogador terá o tempo inicial de 30 segundos, caso acerte um erro será adicionado 10 segundos a mais no tempo, caso erre será retirado 5 segundos do seu tempo.
 
 # Release 3 
-Para uma possível release 3 planejos implementar interface gráfica.  
+Para uma possível release 3 planejos implementar interface gráfica. 
+
+# ATUALIZAÇÕES
+No momento só a função Criptomoedas, Main e limptl.
