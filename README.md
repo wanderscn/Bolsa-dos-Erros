@@ -16,3 +16,5 @@ Sistema de tempo decrescente, o jogador terá o tempo inicial de 30 segundos, ca
 
 # Release 3 
 Para uma possível release 3 planejos implementar interface gráfica. 
+
+# Banana
