@@ -1,4 +1,4 @@
-#importação de modulosa
+#importação de modulos
 from colorama import *
 from fun_limpartela import limptl
 from fun_cripto import criptomoeda
