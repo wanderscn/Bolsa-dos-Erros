@@ -24,8 +24,9 @@ def dev_():
             {Back.YELLOW}[0]{Back.RESET} {Fore.YELLOW}Sair{Fore.WHITE}
                 ''')
          escolha = input()
-         if escolha ==1:
-            pass           
+         if escolha !='0':
+            print ('Esta opção não é válida.')
+            time.sleep(2)
     else:
      menuinicial()
 
@@ -53,7 +54,8 @@ def sobre():
         if escolha == '1': 
             dev_()
         else:
-            print('Esta opção não é válida.') 
+            print('Esta opção não é válida.')
+            time.sleep(2) 
     else:
      menu_bolsa()
 
