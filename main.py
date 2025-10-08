@@ -100,6 +100,7 @@ def menu_bolsa():
             cdi()
         elif menuescolha != '0':
             print('Esta opção não é válida.')
+            time.sleep(2)
         else:
             menuinicial()
 #Função menu inicial
