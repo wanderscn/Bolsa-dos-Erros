@@ -17,7 +17,7 @@ def fundos():
     print(Fore.WHITE+Back.GREEN+' Texto Verdadeiro ', end='')
     print(Fore.GREEN+']'+'='*50)
     print ('''
-            As cotas são compradas na bolsa; cada cota representa parte do fundo. A gestão é profissional e os lucros são distribuídos mensalmente, muitas vezes sem IR para pessoa física.
+            Fundos de investimentos imobiliários(FIIs) são investimentos que reúnem dinheiro de vários investidores para aplicar em imóveis como shoppings, galpões e escritórios. O investidor recebe rendimentos dos aluguéis ou vendas.
 
             🔹 Funcionamento: As cotas são compradas na bolsa; cada cota representa parte do fundo. A gestão é profissional e os lucros são distribuídos mensalmente, muitas vezes sem IR para pessoa física.
             🔹 Aplicação: Abrir conta em corretora, usar o home broker e comprar cotas. É essencial analisar o tipo de fundo, qualidade dos imóveis e gestão.
