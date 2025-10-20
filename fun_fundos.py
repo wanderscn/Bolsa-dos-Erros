@@ -17,27 +17,27 @@ def fundos():
     print(Fore.WHITE+Back.GREEN+' Texto Verdadeiro ', end='')
     print(Fore.GREEN+']'+'='*50)
     print ('''
-            Fundos de investimentos imobiliários(FIIs) são investimentos que reúnem dinheiro de vários investidores para aplicar em imóveis como shoppings, galpões e escritórios. O investidor recebe rendimentos dos aluguéis ou vendas.
+            Fundo imobiliários(FIIs) são investimentos coletivos em imóveis, gerando renda por aluguel ou venda.
 
-            🔹 Funcionamento: As cotas são compradas na bolsa; cada cota representa parte do fundo. A gestão é profissional e os lucros são distribuídos mensalmente, muitas vezes sem IR para pessoa física.
-            🔹 Aplicação: Abrir conta em corretora, usar o home broker e comprar cotas. É essencial analisar o tipo de fundo, qualidade dos imóveis e gestão.
-            🔹 Riscos: Imóveis vazios, inadimplência, desvalorização, juros altos e má administração.
-            🔹 Investimento: Corretoras, fundos imobiliários e ETFs de FIIs na bolsa.
-            👉 Regra de ouro: Diversificar entre diferentes fundos e focar em renda passiva de longo prazo.
+            🔹 Funcionamento: rendimentos mensais distribuídos aos cotistas, muitas vezes isentos de IR.
+            🔹 Aplicação: cotas compradas pela bolsa via corretoras.
+            🔹 Riscos: imóveis vagos, inadimplência e desvalorização.
+            🔹 Investimento: direto por corretoras ou ETFs de FIIs.
+            👉 Regra de ouro: diversificar e focar em renda passiva de longo prazo.
             ''')
     print(Fore.RED+'='*52+'[', end='')
     print(Fore.WHITE+Back.RED+' Texto  Falso ', end='')      
     print(Fore.RED+']'+'='*52)
     print('''
-            Fundos de investimentos imobiliários(FIIs) são investimentos que reúnem dinheiro de poucos investidores para aplicar em imóveis como shoppings, galpões e escritórios. O investidor perde rendimentos dos aluguéis ou vendas.
+            Fundo imobiliários(FIIs) são investimentos individuais em imóveis, gerando dívidas por aluguel ou venda.
 
-            🔹 Funcionamento: As cotas são compradas na lotérica; cada cota representa parte do fundo. A gestão é profissional e os lucros são distribuídos anualmente.
-            🔹 Aplicação: Fechar conta em corretora, usar o home broker e comprar cotas. É essencial ignorar o tipo de fundo, qualidade dos imóveis e gestão.
-            🔹 Riscos: Imóveis vazios, inadimplência, valorização, juros baixos e boa administração.
-            🔹 Investimento: Corretoras, fundos públicos e ETFs de FIIs na bolsa. 
-            👉 Regra de ouro: Diversificar entre diferentes fundos e focar em renda ativa de curto prazo.
+            🔹 Funcionamento: rendimentos diários distribuídos aos inquilinos, poucas vezes isentos de IR.
+            🔹 Aplicação: cotas doadas pela bolsa via correios.
+            🔹 Riscos: imóveis ocupados, inadimplência e valorização.
+            🔹 Investimento: direto por corretoras ou ETFs de cripto.
+            👉 Regra de ouro: diversificar e focar em renda ativa de curto prazo.
           ''')
-    erro_fundo = ['poucos', 'curto', 'ativa', 'públicos', 'baixos', 'boa', 'ignorar', 'fechar', 'anualmente', 'lotérica', 'perde', 'valorização']
+    erro_fundo = ['diários', 'individuais', ‘dívidas', 'inquilinos', 'poucas', 'doadas', 'correios', 'ocupados', 'valorização', 'cripto', 'ativa', 'curto']
     venceu = False
     qu_erros = 0
     while qu_erros < 2 and len(erro_fundo) > 0:
