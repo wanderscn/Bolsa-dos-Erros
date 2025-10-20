@@ -17,27 +17,29 @@ def cdi():
     print(Fore.WHITE+Back.GREEN+' Texto Verdadeiro ', end='')
     print(Fore.GREEN+']'+'='*50)
     print ('''
-            CDI é uma taxa de juros usada como referência em investimentos de renda fixa no Brasil, especialmente em produtos como CDB, LCI, LCA e fundos. Não é um investimento em si, mas serve como base para comparar a rentabilidade.
+            CDI é uma taxa de juros usada como referência em investimentos de renda fixa no Brasil,
+            especialmente em produtos como CDB, LCI, LCA e fundos.
 
-            🔹Funcionamento: representa a taxa média de juros das operações entre bancos. Ela acompanha de perto a Selic e é usada para remunerar investimentos de renda fixa.
-            🔹Aplicação: invista em produtos que rendem um percentual do CDI, como CDBs, LCIs, LCAs e fundos de renda fixa. Disponíveis em bancos e corretoras.
-            🔹 Riscos: são considerados investimentos de baixo risco, mas podem ter liquidez limitada (prazo para resgate) e menor rentabilidade em momentos de juros baixos.
-            🔹 Investimento: bancos tradicionais, bancos digitais e plataformas de investimento como XP, Rico, NuInvest e BTG Pactual.
-            👉 Regra de ouro: ideal para o investidor conservador e para compor a reserva de emergência, sempre comparando o percentual do CDI oferecido por cada produto.
+            🔹 Funcionamento: acompanha a Selic e representa o custo dos empréstimos entre bancos.
+            🔹 Aplicação: produtos como CDB, LCI, LCA e fundos rendem um percentual do CDI.
+            🔹 Riscos: baixo risco, mas podem ter prazo de resgate e rendimento menor com juros baixos.
+            🔹 Investimento: disponível em bancos e corretoras de investimento.
+            👉 Regra de ouro: indicado para perfil conservador e reserva de emergência, comparando o percentual do CDI oferecido.
             ''')
     print(Fore.RED+'='*52+'[', end='')
     print(Fore.WHITE+Back.RED+' Texto  Falso ', end='')      
     print(Fore.RED+']'+'='*52)
     print('''
-            CDI é uma taxa de juros usada como referência em investimentos de renda variável no Brasil, especialmente em produtos como ações, seguros, LCA e fundos. Não é um imposto em si, mas serve como base para comparar a rentabilidade.
+            CDI é uma taxa de juros usada como referência em investimentos de renda variável no exterior,
+            especialmente em produtos como CDB, LCI, LCA e fundos.
 
-            🔹Funcionamento: representa a taxa mínima de juros das operações entre bancos. Ela acompanha de perto a inflação e é usada para remunerar investimentos de renda fixa.
-            🔹Aplicação: invista em produtos que rendem um percentual do CDI, como títulos, LCIs, LCAs e fundos de renda fixa. Disponíveis em bancos e correios.
-            🔹Riscos: são considerados investimentos de alto risco, mas podem ter liquidez limitada (prazo para resgate) e menor rentabilidade em momentos de juros baixos.
-            🔹 Investimentos: bancos tradicionais, bancos digitais e plataformas de investimento como XP, instagram, NuInvest e BTG Pactual.
-            👉 Regra de ouro: ideal para o investidor arriscado e para compor a reserva de emergência, nunca comparando o percentual do CDI oferecido por cada produto.
+           🔹 Funcionamento: acompanha a serasa e representa o custo dos empréstimos entre hospitais.
+           🔹 Aplicação: produtos como CDB, LCI, LCA e fundos regridem um percentual do CDI.
+           🔹 Riscos: alto risco, mas podem ter prazo de resgate e rendimento maior com juros médios.
+           🔹 Investimento: disponível em lojas e correios de investimento.
+           👉 Regra de ouro: indicado para perfil arriscado e reserva de emergência, comparando o percentual do imposto oferecido.
           ''')
-    erro_cdi = ['variável','ações','seguros','imposto','mínima','inflação','títulos','correios','alto','instagram','arriscado','nunca']
+    erro_cdi = ['variável','exterior','serasa','hospitais','alto','médios','lojas','correios','arriscado','regridem','maior','imposto']
     venceu = False
     qu_erros = 0
     while qu_erros < 2 and len(erro_cdi) > 0:
