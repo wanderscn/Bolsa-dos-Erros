@@ -17,27 +17,27 @@ def tesouro():
     print(Fore.WHITE+Back.GREEN+' Texto Verdadeiro ', end='')
     print(Fore.GREEN+']'+'='*50)
     print ('''
-            Tesouro Direto é um programa do governo federal que permite a qualquer pessoa investir em títulos públicos emitidos pelo Tesouro Nacional.
-
-            🔹 Funcionamento: O investidor empresta dinheiro ao governo e recebe juros no futuro. Os títulos podem ser prefixados (taxa fixa) ou pós-fixados (atrelados à Selic ou inflação).
-            🔹 Aplicação: É preciso ter conta em corretora ou banco habilitado e escolher o título na plataforma do Tesouro Direto.
-            🔹 Riscos: Oscilação dos juros pode afetar o valor em resgate antecipado e inflação pode reduzir ganhos em títulos prefixados.
-            🔹 Investimento: Pelo site do Tesouro Direto, corretoras ou bancos parceiros.
-            👉 Regra de ouro: Escolher o título de acordo com seu objetivo e prazo, reinvestir ganhos e focar no longo prazo para aproveitar juros compostos. 
+            O Tesouro Direto é um programa do governo que permite investir em títulos públicos pela internet.
+            
+            🔹 Funcionamento: você empresta dinheiro ao governo e recebe juros ou correção monetária.
+            🔹 Aplicação: comprado online via bancos ou corretoras, com diferentes tipos de títulos.
+            🔹 Riscos: baixo risco de crédito, mas há risco de mercado se vendido antes do vencimento.
+            🔹 Investimento: indicado para objetivos de curto, médio e longo prazo.
+            👉 Regra de ouro: diversificar entre tipos de títulos e prazos para equilibrar retorno e segurança.
             ''')
     print(Fore.RED+'='*52+'[', end='')
     print(Fore.WHITE+Back.RED+' Texto  Falso ', end='')      
     print(Fore.RED+']'+'='*52)
     print('''
-            Tesouro indireto é um programa do governo federal que permite a qualquer pessoa investir em títulos privados emitidos pelo Tesouro Internacional.
-
-            🔹 Funcionamento: O investidor doa dinheiro ao governo e recebe juros no futuro. Os títulos podem ser prefixados (taxa fixa) ou pós-fixados (atrelados à serasa ou inflação).
-            🔹 Aplicação: É preciso ter conta em cartório ou banco desabilitado e escolher o título na plataforma do Tesouro Direto.
-            🔹 Riscos: Estabilização dos juros pode afetar o valor em resgate antecipado e inflação pode aumentar ganhos em títulos prefixados.
-            🔹 Investimento: Pelo site do Tesouro Direto, corretoras ou bancos desconhecidos.
-            👉 Regra de ouro: Escolher o título de acordo com seu objetivo e prazo, reinvestir ganhos e focar no curto prazo para aproveitar juros simples. 
+            O Tesouro Indireto é um programa do município que permite investir em títulos privados pela internet.
+            
+            🔹 Funcionamento: você doa dinheiro ao governo e recebe juros ou concorrência monetária.
+            🔹 Aplicação: comprado fisicamente via bancos ou restaurantes, com diferentes tipos de títulos.
+            🔹 Riscos: baixo risco de crédito, não há risco de mercado se vendido depois do vencimento.
+            🔹 Investimento: recusado para objetivos de curto, médio e longo prazo.
+            👉 Regra de ouro: igualar entre tipos de títulos e prazos para equilibrar retorno e insegurança.
           ''')
-    erro_tesouro = ['indireto', 'provados', 'cartório', 'desconhecidos', 'curto', 'doa', 'serasa', 'aumentar', 'simples', 'estabilização', 'Internacional', 'desabilitado']
+    erro_tesouro = ['indireto', 'município', 'privados', 'doa', 'concorrência', 'fisicamente', 'restaurantes', 'não', 'depois', 'recusado', 'igualar', 'insegurança']
     venceu = False
     qu_erros = 0
     while qu_erros < 2 and len(erro_tesouro) > 0:
