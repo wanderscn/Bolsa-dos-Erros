@@ -18,4 +18,4 @@ Sistema de tempo decrescente, o jogador terá o tempo inicial de 30 segundos, ca
 Para uma possível release 3 planejos implementar interface gráfica. 
 
 # ATUALIZAÇÕES
-No momento só a função Criptomoedas, Main e limptl.
+Todos as funções estão funcionando normalmente, com o tempo incluso.
