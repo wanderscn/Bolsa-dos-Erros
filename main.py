@@ -68,6 +68,9 @@ def menu_bolsa():
     op_tesouro = (f'{Back.YELLOW}[3]{Back.RESET} {Fore.YELLOW}Tesouro direto{Fore.WHITE}')
     op_cdi = (f'{Back.YELLOW}[4]{Back.RESET} {Fore.YELLOW}CDI{Fore.WHITE}')
     jogou_cripto = 0
+    jogou_fundos = 0
+    jogou_tesouro = 0
+    jogou_cdi = 0
     while menuescolha != '0':
         limptl()
         print(Fore.BLUE+'='*50)
@@ -95,11 +98,44 @@ def menu_bolsa():
                 else:
                      op_cripto = (f'{Back.YELLOW}[1]{Back.RESET} {Fore.YELLOW}Criptomoedas{Fore.WHITE} {Back.RED}  {Back.RESET}')
         elif menuescolha=='2':
-            fundos()
+            venceu2 = fundos()
+            if venceu2 is True:
+                (jogou_fundos)+=1
+                if (jogou_fundos)>=1:
+                    op_fundos = (f'{Back.YELLOW}[2]{Back.RESET} {Fore.YELLOW}Fundos imobiliários{Fore.WHITE} {Back.GREEN}  {Back.RESET}')
+                else:
+                    op_fundos = (f'{Back.YELLOW}[2]{Back.RESET} {Fore.YELLOW}Fundos imobiliários{Fore.WHITE} {Back.RED}  {Back.RESET}')
+            else:
+                if (jogou_fundos)>=1:
+                    op_fundos = (f'{Back.YELLOW}[2]{Back.RESET} {Fore.YELLOW}Fundos imobiliários{Fore.WHITE} {Back.GREEN}  {Back.RESET}')
+                else:
+                    op_fundos = (f'{Back.YELLOW}[2]{Back.RESET} {Fore.YELLOW}Fundos imobiliários{Fore.WHITE} {Back.RED}  {Back.RESET}')
         elif menuescolha=='3':
-            tesouro()
+            venceu3 = tesouro()
+            if venceu3 is True:
+                (jogou_tesouro)+=1
+                if (jogou_tesouro)>=1:
+                    op_tesouro = (f'{Back.YELLOW}[3]{Back.RESET} {Fore.YELLOW}Tesouro direto{Fore.WHITE} {Back.GREEN}  {Back.RESET}')
+                else:
+                    op_tesouro = (f'{Back.YELLOW}[3]{Back.RESET} {Fore.YELLOW}Tesouro direto{Fore.WHITE} {Back.RED}  {Back.RESET}')
+            else:
+                if (jogou_tesouro)>=1:
+                    op_tesouro = (f'{Back.YELLOW}[3]{Back.RESET} {Fore.YELLOW}Tesouro direto{Fore.WHITE} {Back.GREEN}  {Back.RESET}')
+                else:
+                    op_tesouro = (f'{Back.YELLOW}[3]{Back.RESET} {Fore.YELLOW}Tesouro direto{Fore.WHITE} {Back.RED}  {Back.RESET}')
         elif menuescolha=='4':
-            cdi()
+            venceu4 = cdi()
+            if venceu4 is True:
+                (jogou_cdi)+=1
+                if (jogou_cdi)>=1:
+                    op_cdi = (f'{Back.YELLOW}[4]{Back.RESET} {Fore.YELLOW}CDI{Fore.WHITE} {Back.GREEN}  {Back.RESET}')
+                else:
+                    op_cdi = (f'{Back.YELLOW}[4]{Back.RESET} {Fore.YELLOW}CDI{Fore.WHITE} {Back.RED}  {Back.RESET}')
+            else:
+                if (jogou_cdi)>=1:
+                    op_cdi = (f'{Back.YELLOW}[4]{Back.RESET} {Fore.YELLOW}CDI{Fore.WHITE} {Back.GREEN}  {Back.RESET}')
+                else:
+                    op_cdi = (f'{Back.YELLOW}[4]{Back.RESET} {Fore.YELLOW}CDI{Fore.WHITE} {Back.RED}  {Back.RESET}')
         elif menuescolha != '0':
             print('Esta opção não é válida.')
             time.sleep(2)

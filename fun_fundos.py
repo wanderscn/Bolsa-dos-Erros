@@ -37,7 +37,7 @@ def fundos():
             🔹 Investimento: direto por corretoras ou ETFs de cripto.
             👉 Regra de ouro: diversificar e focar em renda ativa de curto prazo.
           ''')
-    erro_fundo = ['diários', 'individuais', ‘dívidas', 'inquilinos', 'poucas', 'doadas', 'correios', 'ocupados', 'valorização', 'cripto', 'ativa', 'curto']
+    erro_fundo = ['diários', 'individuais', 'dívidas', 'inquilinos', 'poucas', 'doadas', 'correios', 'ocupados', 'valorização', 'cripto', 'ativa', 'curto']
     venceu = False
     qu_erros = 0
     while qu_erros < 2 and len(erro_fundo) > 0:
