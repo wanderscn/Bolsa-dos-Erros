@@ -4,6 +4,7 @@ from colorama import *
 
 #Função tema cdi
 def cdi():
+    tempo_inicial = time.time()
     print('Vai começar!')
     for B in range(3,0,-1):
      lista_cor = [Back.RESET,Back.YELLOW,Back.RED,Back.RED]
@@ -44,6 +45,8 @@ def cdi():
     qu_erros = 0
     while qu_erros < 2 and len(erro_cdi) > 0:
         erro = input().lower()
+        tempo_final = time.time()
+        tempo_total_cdi = str(tempo_final - tempo_inicial)
         if erro not in erro_cdi:
             qu_erros+=1
             print(f'{Fore.RED+'='*45}[ {Back.RED}Você errou!{Back.RESET} Possui apenas mais uma tentativa. ]{Fore.RED+'='*45}')
@@ -59,7 +62,7 @@ def cdi():
         print(f'{Fore.RED+'='*40}[ {Back.RED}Você Perdeu!{Back.RESET} Suas tentativas acabaram, tente novamente. ]{Fore.RED+'='*40}')
         time.sleep(2)
     else:
-        print(f'{Fore.GREEN+'='*50}[ {Back.GREEN}Você Ganhou!!{Back.RESET} Achou todos os erros! ]{Fore.GREEN+'='*50}')
+        print(f'{Fore.GREEN+'='*50}[ {Back.GREEN}Você Ganhou!!{Back.RESET} Achou todos os erros em {(tempo_total_cdi[:4])} segundos! ]{Fore.GREEN+'='*50}')
         time.sleep(3)
         venceu = True
-    return venceu
+    return venceu, tempo_total_cdi

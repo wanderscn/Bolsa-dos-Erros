@@ -5,6 +5,7 @@ from colorama import *
 
 #Função tema criptomoeda
 def criptomoeda():
+    tempo_inicial = time.time()
     print('Vai começar!')
     for B in range(3,0,-1):
         lista_cor = [Back.RESET,Back.YELLOW,Back.RED,Back.RED]
@@ -45,6 +46,8 @@ def criptomoeda():
     qu_erros = 0
     while qu_erros < 2 and len(erro_cripto) > 0:
         erro = input().lower()
+        tempo_final = time.time()
+        tempo_total_cripto = str(tempo_final - tempo_inicial)
         if erro not in erro_cripto:
             qu_erros+=1
             print(f'{Fore.RED+'='*45}[ {Back.RED}Você errou!{Back.RESET} Possui apenas mais uma tentativa. ]{Fore.RED+'='*45}')
@@ -60,10 +63,10 @@ def criptomoeda():
         print(f'{Fore.RED+'='*40}[ {Back.RED}Você Perdeu!{Back.RESET} Suas tentativas acabaram, tente novamente. ]{Fore.RED+'='*40}')
         time.sleep(2)
     else:
-        print(f'{Fore.GREEN+'='*50}[ {Back.GREEN}Você Ganhou!!{Back.RESET} Achou todos os erros! ]{Fore.GREEN+'='*50}')
+        print(f'{Fore.GREEN+'='*50}[ {Back.GREEN}Você Ganhou!!{Back.RESET} Achou todos os erros em {(tempo_total_cripto[:4])} segundos! ]{Fore.GREEN+'='*50}')
         time.sleep(3)
         venceu = True
-    return venceu
+    return venceu, tempo_total_cripto
 
 
 
