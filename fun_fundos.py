@@ -63,4 +63,4 @@ def fundos():
         print(f'{Fore.GREEN+'='*50}[ {Back.GREEN}Você Ganhou!!{Back.RESET} Achou todos os erros em {(tempo_total_fundos[:4])} segundos! ]{Fore.GREEN+'='*50}')
         time.sleep(3)
         venceu = True
-    return venceu
+    return venceu, tempo_total_fundos
