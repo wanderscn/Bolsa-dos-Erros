@@ -47,6 +47,7 @@ Promover educação financeira através da análise de textos. O jogador deve id
 
 ## ✅ Status Atual
 ✔ Todas as funcionalidades das Releases 1 estão implementadas; 
+
 ✔ Sistema de tempo crescente funcionando corretamente;
 
 ---
