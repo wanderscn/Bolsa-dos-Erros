@@ -54,7 +54,7 @@ Promover educação financeira através da análise de textos. O jogador deve id
 
 ## 👨‍💻 Desenvolvedores
 
-Este projeto foi desenvolvido por estudantes do curso de **Sistemas de Informação**, com foco em unir tecnologia, educação e economia de forma inovadora e acessível.
+Este projeto foi desenvolvido por estudantes do curso de **Sistemas de Informação** da **Universidade Federal Rural de Pernambuco**, com foco em unir tecnologia, educação e economia de forma inovadora e acessível.
 
 | Nome                | Curso                   | Período     |
 |--------------------|--------------------------|-------------|
