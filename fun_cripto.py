@@ -69,7 +69,7 @@ def criptomoeda():
     return venceu, tempo_total_cripto
 
 #Modo hard
-def criptohard ():
+def cripto_hard ():
     tempo_inicial = time.time()
     print('Vai começar!')
     for B in range(3,0,-1):
@@ -137,4 +137,5 @@ def criptohard ():
 
 
     
+
 
