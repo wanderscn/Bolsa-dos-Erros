@@ -1,7 +1,7 @@
 #importação de modulos
 from colorama import *
 from fun_limpartela import limptl
-from fun_cripto import criptomoeda
+from fun_cripto import criptomoeda, cripto_hard
 from fun_fundos import fundos
 from fun_cdi import cdi
 from fun_tesouro import tesouro
@@ -143,6 +143,114 @@ def menu_bolsa():
             time.sleep(2)
         else:
             menuinicial()
+
+def menubolsa_hard():
+    menuescolha = ''
+    init(autoreset=True)
+    op_cripto = (f'{Back.YELLOW}[1]{Back.RESET} {Fore.YELLOW}Criptomoedas{Fore.WHITE}')
+    op_fundos = (f'{Back.YELLOW}[2]{Back.RESET} {Fore.YELLOW}Fundos imobiliários{Fore.WHITE}')
+    op_tesouro = (f'{Back.YELLOW}[3]{Back.RESET} {Fore.YELLOW}Tesouro direto{Fore.WHITE}')
+    op_cdi = (f'{Back.YELLOW}[4]{Back.RESET} {Fore.YELLOW}CDI{Fore.WHITE}')
+    jogou_cripto = 0
+    jogou_fundos = 0
+    jogou_tesouro = 0
+    jogou_cdi = 0
+    while menuescolha != '0':
+        limptl()
+        print(Fore.RED+'='*50)
+        print(f'''                  Escolha o TEMA HARD que deseja: 
+              
+                {op_cripto}
+                {op_fundos}
+                {op_tesouro}
+                {op_cdi}
+                {Back.YELLOW}[0]{Back.RESET} {Fore.YELLOW}Voltar para tela inicial''')
+        print(Fore.RED+'='*50)
+        print(Fore.RESET)
+        menuescolha = input()
+        if menuescolha == '1':
+            venceu, tempo_total_cripto = cripto_hard()
+            if venceu is True:
+                (jogou_cripto)+=1
+                if (jogou_cripto)>=1:
+                    op_cripto = (f'{Back.YELLOW}[1]{Back.RESET} {Fore.YELLOW}Criptomoedas{Fore.WHITE} {Back.GREEN} {tempo_total_cripto[:5]} {Back.RESET}')
+                else:
+                    op_cripto = (f'{Back.YELLOW}[1]{Back.RESET} {Fore.YELLOW}Criptomoedas{Fore.WHITE} {Back.RED} {tempo_total_cripto[:5]} {Back.RESET}')
+            else:
+                if (jogou_cripto)>=1:
+                    op_cripto = (f'{Back.YELLOW}[1]{Back.RESET} {Fore.YELLOW}Criptomoedas{Fore.WHITE} {Back.GREEN} {tempo_total_cripto[:5]} {Back.RESET}')
+                else:
+                     op_cripto = (f'{Back.YELLOW}[1]{Back.RESET} {Fore.YELLOW}Criptomoedas{Fore.WHITE} {Back.RED} {tempo_total_cripto[:5]} {Back.RESET}')
+        elif menuescolha=='2':
+            venceu2, tempo_total_fundos = fundos()
+            if venceu2 is True:
+                (jogou_fundos)+=1
+                if (jogou_fundos)>=1:
+                    op_fundos = (f'{Back.YELLOW}[2]{Back.RESET} {Fore.YELLOW}Fundos imobiliários{Fore.WHITE} {Back.GREEN} {tempo_total_fundos[:5]} {Back.RESET}')
+                else:
+                    op_fundos = (f'{Back.YELLOW}[2]{Back.RESET} {Fore.YELLOW}Fundos imobiliários{Fore.WHITE} {Back.RED} {tempo_total_fundos[:5]} {Back.RESET}')
+            else:
+                if (jogou_fundos)>=1:
+                    op_fundos = (f'{Back.YELLOW}[2]{Back.RESET} {Fore.YELLOW}Fundos imobiliários{Fore.WHITE} {Back.GREEN} {tempo_total_fundos[:5]} {Back.RESET}')
+                else:
+                    op_fundos = (f'{Back.YELLOW}[2]{Back.RESET} {Fore.YELLOW}Fundos imobiliários{Fore.WHITE} {Back.RED} {tempo_total_fundos[:5]} {Back.RESET}')
+        elif menuescolha=='3':
+            venceu3, tempo_total_tesouro = tesouro()
+            if venceu3 is True:
+                (jogou_tesouro)+=1
+                if (jogou_tesouro)>=1:
+                    op_tesouro = (f'{Back.YELLOW}[3]{Back.RESET} {Fore.YELLOW}Tesouro direto{Fore.WHITE} {Back.GREEN} {tempo_total_tesouro[:5]} {Back.RESET}')
+                else:
+                    op_tesouro = (f'{Back.YELLOW}[3]{Back.RESET} {Fore.YELLOW}Tesouro direto{Fore.WHITE} {Back.RED} {tempo_total_tesouro[:5]} {Back.RESET}')
+            else:
+                if (jogou_tesouro)>=1:
+                    op_tesouro = (f'{Back.YELLOW}[3]{Back.RESET} {Fore.YELLOW}Tesouro direto{Fore.WHITE} {Back.GREEN} {tempo_total_tesouro[:5]} {Back.RESET}')
+                else:
+                    op_tesouro = (f'{Back.YELLOW}[3]{Back.RESET} {Fore.YELLOW}Tesouro direto{Fore.WHITE} {Back.RED} {tempo_total_tesouro[:5]} {Back.RESET}')
+        elif menuescolha=='4':
+            venceu4, tempo_total_cdi = cdi()
+            if venceu4 is True:
+                (jogou_cdi)+=1
+                if (jogou_cdi)>=1:
+                    op_cdi = (f'{Back.YELLOW}[4]{Back.RESET} {Fore.YELLOW}CDI{Fore.WHITE} {Back.GREEN} {tempo_total_cdi[:5]} {Back.RESET}')
+                else:
+                    op_cdi = (f'{Back.YELLOW}[4]{Back.RESET} {Fore.YELLOW}CDI{Fore.WHITE} {Back.RED} {tempo_total_cdi[:5]} {Back.RESET}')
+            else:
+                if (jogou_cdi)>=1:
+                    op_cdi = (f'{Back.YELLOW}[4]{Back.RESET} {Fore.YELLOW}CDI{Fore.WHITE} {Back.GREEN} {tempo_total_cdi[:5]} {Back.RESET}')
+                else:
+                    op_cdi = (f'{Back.YELLOW}[4]{Back.RESET} {Fore.YELLOW}CDI{Fore.WHITE} {Back.RED} {tempo_total_cdi[:5]} {Back.RESET}')
+        elif menuescolha == '5':
+            cripto_hard()
+        elif menuescolha != '0':
+            print('Esta opção não é válida.')
+            time.sleep(2)
+        else:
+            menuinicial()
+def hardounormal():
+    menuescolha = ''
+    init(autoreset=True)
+    while menuescolha != '0':
+        limptl()
+        print(Fore.BLUE+'='*50)
+        print(f'''            Quer o {Fore.GREEN}{Back.GREEN}NORMAL{Back.RESET}{Fore.WHITE} ou {Fore.RED}{Back.RED}HARD{Back.RESET}{Fore.WHITE}?
+              
+                {Back.YELLOW}[1]{Back.RESET} {Fore.YELLOW}Normal{Fore.WHITE}
+                {Back.YELLOW}[2]{Back.RESET} {Fore.YELLOW}Hard{Fore.WHITE}
+                {Back.YELLOW}[3]{Back.RESET} {Fore.YELLOW}Voltar{Fore.WHITE}
+                ''')
+        print(Fore.BLUE+'='*50)
+        print(Fore.RESET)
+        menuescolha = input()
+        if menuescolha == '1':
+            menu_bolsa()
+        elif menuescolha=='2':
+            menubolsa_hard()
+        elif menuescolha=='3':
+            menuinicial()
+        elif menuescolha != '0':
+            print('Esta opção não é válida.')
+            time.sleep(2)
 #Função menu inicial
 def menuinicial():
     menuescolha = ''
@@ -160,7 +268,7 @@ def menuinicial():
         print(Fore.RESET)
         menuescolha = input()
         if menuescolha == '1':
-            menu_bolsa()
+            hardounormal()
         elif menuescolha=='2':
             sobre()
         elif menuescolha != '0':

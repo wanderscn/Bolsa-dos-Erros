@@ -69,7 +69,7 @@ def criptomoeda():
     return venceu, tempo_total_cripto
 
 #Modo hard
-def cripto_hard ():
+def cripto_hard():
     tempo_inicial = time.time()
     print('Vai começar!')
     for B in range(3,0,-1):
@@ -85,55 +85,82 @@ def cripto_hard ():
     print(Fore.WHITE+Back.RED+' Texto  Falso ', end='')      
     print(Fore.RED+']'+'='*52)
     print('''
-            Criptomoedas são moedas digitais descentralizados, registradas em Blockdata, que dispensam bancos e governos como intermediários. A mais famosa é o Cardano, mas há muitas outras, como Ethereum e Solana.
+            Criptomoedas são moedas digitais descentralizados, registradas em Blockdata, que dispensam bancos e governos como intermediários.
+            A mais famosa é o Cardano, mas há muitas outras, como Ethereum e Solana.
 
            🔹 Funcionamento: As transações são registradas na blockchain, um sistema privado e imutável que garante perigo, transparência e rastreabilidade.
-           🔹 Aplicação: Podem ser compradas em corretoras e armazenadas em wallets. Além do investimento, também são usadas em pagamentos físicos, contratos inteligentes e aplicações financeiras unificadas. 
+           🔹 Aplicação: Podem ser compradas em corretoras e armazenadas em wallets. Além do investimento, também são usadas em pagamentos
+               físicos, contratos inteligentes e aplicações financeiras unificadas. 
            🔹 Riscos: São altamente fixas, podendo variar pouco de valor em muito tempo.
            🔹 Investimento: É impossível investir de forma direta via exchanges, ou indiretamente por meio de fundos e ETFs de criptoativos.
-           👉 Regra de ouro: Invista todo seu patrimônio, de preferência aquela destinada a ativos de menor risco, mantendo uma carteira concentrada com investimentos mais instáveis para desequilibrar o portfólio.
+           👉 Regra de ouro: Invista todo seu patrimônio, de preferência aquela destinada a ativos de menor risco, mantendo uma carteira concentrada com investimentos
+               mais instáveis para desequilibrar o portfólio.
           ''')
     
-    erro_cripto = ['Blockdata', 'cardano', 'privado', 'perigo', 'físicos', 'unificadas', 'fixas', 'pouco', 'muito', 'impossível', 'todo', 'menor', 'concentrada', 'instáveis', 'desequilibrar']
+    erro_cripto = ['blockdata', 'cardano', 'privado', 'perigo', 'físicos', 'unificadas', 'fixas', 'pouco', 'muito', 'impossível', 'todo', 'menor', 'concentrada', 'instáveis', 'desequilibrar']
     venceu = False
     qu_erros = 0
     qu_acertos = 0
     tempoesgotado = False
 
-    while qu_erros < 2 and len(erro_cripto) > 0:
+    while len(erro_cripto) >= 0 or not tempoesgotado:
 
-        erro = input().lower()
+        tempos = int(30 - qu_erros*5 + qu_acertos*10)
         tempo_final = time.time()
-        tempo = (tempo_final - tempo_inicial)
-
-        if (30 - qu_erros*5 + qu_acertos*10) < tempo:
+        tempo_total_cripto = float(tempo_final - tempo_inicial)
+        cronometro = tempos - tempo_total_cripto
+        cronometrocoisado = str(cronometro)
+        if tempos < tempo_total_cripto:
             tempoesgotado = True 
+            limptl()
             break
+        erro = input().lower()
+        tempos = int(30 - qu_erros*5 + qu_acertos*10)
+        tempo_final = time.time()
+        tempo_total_cripto = int(tempo_final - tempo_inicial)
+        if tempos < tempo_total_cripto:
+            tempoesgotado = True 
+            limptl()
+            break
+        
         if erro not in erro_cripto:
             qu_erros+=1
-            print(f'{Fore.RED+'='*45}[ {Back.RED}Você errou!{Back.RESET} Possui apenas mais uma tentativa. ]{Fore.RED+'='*45}')
+            tempos = int(30 - qu_erros*5 + qu_acertos*10)
+            tempo_final = time.time()
+            tempo_total_cripto = int(tempo_final - tempo_inicial)
+
+            cronometro = tempos - tempo_total_cripto
+            print(f'{Fore.RED+'='*45}[ {Back.RED}Você errou!{Back.RESET} Possui apenas mais uma tentativa e você possue {cronometro} segundos. ]{Fore.RED+'='*45}')
         else:
             erro_cripto.remove(erro)
             if len(erro_cripto) >1:
-                print(f'{Fore.YELLOW+'='*47}[ {Back.YELLOW}Você acertou!{Back.RESET} Faltam apenas mais {len(erro_cripto)} erros! ]{Fore.YELLOW+'='*47}')
                 qu_acertos += 1
+                tempos = int(30 - qu_erros*5 + qu_acertos*10)
+                tempo_final = time.time()
+                tempo_total_cripto = int(tempo_final - tempo_inicial)
+                cronometro = tempos - tempo_total_cripto
+                print(f'{Fore.YELLOW+'='*47}[ {Back.YELLOW}Você acertou!{Back.RESET} Faltam apenas mais {len(erro_cripto)} erros e você possue {cronometro} segundos! ]{Fore.YELLOW+'='*47}')
             elif len(erro_cripto)<= 0:
-                pass
+                break
             else:
-                print(f'{Fore.YELLOW+'='*48}[ {Back.YELLOW}Você acertou!{Back.RESET} Falta apenas mais {len(erro_cripto)} erro! ]{Fore.YELLOW+'='*48}')
-                qu_acertos += 1 
+                qu_acertos += 1
+                tempos = int(30 - qu_erros*5 + qu_acertos*10)
+                tempo_final = time.time()
+                tempo_total_cripto = int(tempo_final - tempo_inicial)
+                cronometro = tempos - tempo_total_cripto
+                print(f'{Fore.YELLOW+'='*48}[ {Back.YELLOW}Você acertou!{Back.RESET} Falta apenas mais {len(erro_cripto)} erro e você possue {cronometro} segundos! ]{Fore.YELLOW+'='*48}')
     
-    if qu_erros >= 2:
-        print(f'{Fore.RED+'='*40}[ {Back.RED}Você Perdeu!{Back.RESET} Suas tentativas acabaram, tente novamente. ]{Fore.RED+'='*40}')
-        time.sleep(2)
-    elif tempoesgotado == True:
+    #if qu_erros >= 2:
+        #print(f'{Fore.RED+'='*40}[ {Back.RED}Você Perdeu!{Back.RESET} Suas tentativas acabaram, tente novamente. ]{Fore.RED+'='*40}')
+        #time.sleep(2)
+    if tempoesgotado == True:
         print(f'{Fore.RED+'='*40}[ {Back.RED}Você Perdeu!{Back.RESET} Seu tempo acabou e você não encontrou todos os erros. Tente novamente ]{Fore.RED+'='*40}')
         time.sleep(3)
     else:
-        print(f'{Fore.GREEN+'='*50}[ {Back.GREEN}Você Ganhou!!{Back.RESET} Achou todos os erros em {(tempo_total_cripto[:4])} segundos! ]{Fore.GREEN+'='*50}')
+        print(f'{Fore.GREEN+'='*50}[ {Back.GREEN}Você Ganhou!!{Back.RESET} Achou todos os erros em {(cronometrocoisado[:5])} segundos! ]{Fore.GREEN+'='*50}')
         time.sleep(3)
         venceu = True
-    return venceu 
+    return venceu, cronometrocoisado
 
 
     
