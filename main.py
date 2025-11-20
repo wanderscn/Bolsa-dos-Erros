@@ -1,10 +1,10 @@
 #importação de modulos
 from colorama import *
-from fun_limpartela import limptl
+from utils import limptl
 from fun_cripto import criptomoeda, cripto_hard
-from fun_fundos import fundos
-from fun_cdi import cdi
-from fun_tesouro import tesouro
+from fun_fundos import fundos, fundos_hard
+from fun_cdi import cdi, cdi_hard
+from fun_tesouro import tesouro, tesouro_hard
 import time
 
 #função_menu_dev
@@ -42,7 +42,7 @@ def sobre():
             São 2 textos, o primeiro com informações verídicas sobre um investimento,
             o segundo, é um texto praticamente identico, mas com alguns erros que alteram o sentido da oração.
             
-            Seu dever é encontrar e digitar todos os erros do segundo texto
+            Seu dever é encontrar, digitar e confirmar todos as diferenças entre os dois textos
             e aprender os principais fatos sobre o mundo dos investimentos.
               ''')
         print(f'''{Fore.CYAN+'='*50}[{Back.CYAN}        {Back.RESET}]{Fore.CYAN+'='*50}''')
@@ -82,7 +82,8 @@ def menu_bolsa():
                 {op_fundos}
                 {op_tesouro}
                 {op_cdi}
-                {Back.YELLOW}[0]{Back.RESET} {Fore.YELLOW}Voltar para tela inicial''')
+                {Back.YELLOW}[0]{Back.RESET} {Fore.YELLOW}Voltar para tela inicial
+                ''')
         print(Fore.BLUE+'='*50)
         print(Fore.RESET)
         menuescolha = input()
@@ -158,13 +159,14 @@ def menubolsa_hard():
     while menuescolha != '0':
         limptl()
         print(Fore.RED+'='*50)
-        print(f'''                  Escolha o TEMA HARD que deseja: 
+        print(f'''            Escolha o TEMA {Fore.RED}{Back.RED}HARD{Back.RESET}{Fore.WHITE} que deseja: 
               
                 {op_cripto}
                 {op_fundos}
                 {op_tesouro}
                 {op_cdi}
-                {Back.YELLOW}[0]{Back.RESET} {Fore.YELLOW}Voltar para tela inicial''')
+                {Back.YELLOW}[0]{Back.RESET} {Fore.YELLOW}Voltar para tela inicial
+                ''')
         print(Fore.RED+'='*50)
         print(Fore.RESET)
         menuescolha = input()
@@ -182,7 +184,7 @@ def menubolsa_hard():
                 else:
                      op_cripto = (f'{Back.YELLOW}[1]{Back.RESET} {Fore.YELLOW}Criptomoedas{Fore.WHITE} {Back.RED} {tempo_total_cripto[:5]} {Back.RESET}')
         elif menuescolha=='2':
-            venceu2, tempo_total_fundos = fundos()
+            venceu2, tempo_total_fundos = fundos_hard()
             if venceu2 is True:
                 (jogou_fundos)+=1
                 if (jogou_fundos)>=1:
@@ -195,7 +197,7 @@ def menubolsa_hard():
                 else:
                     op_fundos = (f'{Back.YELLOW}[2]{Back.RESET} {Fore.YELLOW}Fundos imobiliários{Fore.WHITE} {Back.RED} {tempo_total_fundos[:5]} {Back.RESET}')
         elif menuescolha=='3':
-            venceu3, tempo_total_tesouro = tesouro()
+            venceu3, tempo_total_tesouro = tesouro_hard()
             if venceu3 is True:
                 (jogou_tesouro)+=1
                 if (jogou_tesouro)>=1:
@@ -208,7 +210,7 @@ def menubolsa_hard():
                 else:
                     op_tesouro = (f'{Back.YELLOW}[3]{Back.RESET} {Fore.YELLOW}Tesouro direto{Fore.WHITE} {Back.RED} {tempo_total_tesouro[:5]} {Back.RESET}')
         elif menuescolha=='4':
-            venceu4, tempo_total_cdi = cdi()
+            venceu4, tempo_total_cdi = cdi_hard()
             if venceu4 is True:
                 (jogou_cdi)+=1
                 if (jogou_cdi)>=1:

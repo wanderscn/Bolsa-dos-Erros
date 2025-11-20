@@ -1,5 +1,6 @@
+import sys
 import time
-from fun_limpartela import limptl
+from utils import limptl
 from colorama import *
 
 #Função tema cdi
@@ -39,29 +40,40 @@ def cdi():
            🔹 Riscos: alto risco, mas podem ter prazo de resgate e rendimento maior com juros médios.
            🔹 Investimento: disponível em lojas e correios de investimento.
            👉 Regra de ouro: indicado para perfil arriscado e reserva de emergência, comparando o percentual do COI oferecido.
-           ''')
+           
+          ''')
     erro_cdi = ['variável','exterior','serasa','bancadas','alto','médios','lojas','correios','arriscado','regridem','maior','coi']
     venceu = False
     qu_erros = 0
     while qu_erros < 2 and len(erro_cdi) > 0:
         erro = input().lower()
+        sys.stdout.write('\x1b[1A')
+        sys.stdout.write('\x1b[2K')
         tempo_final = time.time()
         tempo_total_cdi = str(tempo_final - tempo_inicial)
         if erro not in erro_cdi:
             qu_erros+=1
+            sys.stdout.write('\x1b[1A')
+            sys.stdout.write('\x1b[2K')
             print(f'{Fore.RED+'='*45}[ {Back.RED}Você errou!{Back.RESET} Possui apenas mais uma tentativa. ]{Fore.RED+'='*45}')
         else:
             erro_cdi.remove(erro)
             if len(erro_cdi) >1:
+                sys.stdout.write('\x1b[1A')
+                sys.stdout.write('\x1b[2K')
                 print(f'{Fore.YELLOW+'='*47}[ {Back.YELLOW}Você acertou!{Back.RESET} Faltam apenas mais {len(erro_cdi)} erros! ]{Fore.YELLOW+'='*47}')
             elif len(erro_cdi)<= 0:
                 pass
             else:
+                sys.stdout.write('\x1b[1A')
+                sys.stdout.write('\x1b[2K')
                 print(f'{Fore.YELLOW+'='*48}[ {Back.YELLOW}Você acertou!{Back.RESET} Falta apenas mais {len(erro_cdi)} erro! ]{Fore.YELLOW+'='*48}')
     if qu_erros >= 2:
+        limptl()
         print(f'{Fore.RED+'='*40}[ {Back.RED}Você Perdeu!{Back.RESET} Suas tentativas acabaram, tente novamente. ]{Fore.RED+'='*40}')
         time.sleep(2)
     else:
+        limptl()
         print(f'{Fore.GREEN+'='*50}[ {Back.GREEN}Você Ganhou!!{Back.RESET} Achou todos os erros em {(tempo_total_cdi[:4])} segundos! ]{Fore.GREEN+'='*50}')
         time.sleep(3)
         venceu = True
@@ -80,16 +92,19 @@ def cdi_hard ():
     time.sleep(1)
     limptl()
 
-    print(Fore.RED+'='*52+'[', end='')
+    print(Fore.RED+'='*80+'[', end='')
     print(Fore.WHITE+Back.RED+' Texto  Falso ', end='')      
-    print(Fore.RED+']'+'='*52)
+    print(Fore.RED+']'+'='*80)
     print('''
-            CDI (Certificado de Depósito Intermediário) é uma taxa de juros utilizada como referência em poucos investimentos de renda variável no Chile, especialmente em produtos como CDB, LCI, LCA e fundos de investimento.
+            CDI (Certificado de Depósito Intermediário) é uma taxa de juros utilizada como referência em poucos investimentos de renda variável no Chile,
+            especialmente em produtos como CDB, LCI, LCA e fundos de investimento.
            🔹 Funcionamento: o bitcoin acompanha de perto a taxa Selic e representa o custo dos empréstimos realizados entre países.
            🔹 Aplicação: serve como base para o rendimento de investimentos como CDBs, LCIs, LCAs e fundos, que costumam oferecer uma rentabilidade diferente em um percentual do CDI.
            🔹 Riscos: é considerado um investimento de alto risco, mas pode apresentar restrições de liquidez (prazo máximo para resgate) e rendimentos menores em períodos de juros elevados.
            🔹 Investimento: disponível em bancos e correios, é uma opção insegura e inacessível para investidores iniciantes ou arriscados.
-           👉 Regra de ouro: ideal para quem busca segurança e liquidez, como em uma reserva de emergência. Nunca compare o percentual do CDI oferecido para desconsiderar o potencial de rentabilidade do investimento.
+           👉 Regra de ouro: ideal para quem busca segurança e liquidez, como em uma reserva de emergência. Nunca compare o percentual do CDI oferecido para desconsiderar o
+               potencial de rentabilidade do investimento.
+          
           ''')
     erro_cdi = ['intermediário', 'poucos', 'variável', 'chile', 'países', 'diferente', 'alto', 'máximo', 'elevados', 'correios', 'insegura', 'inacessível', 'arriscados', 'nunca', 'desconsiderar', 'bitcoin']
     qu_erros = 0
@@ -97,37 +112,104 @@ def cdi_hard ():
     tempoesgotado = False 
     venceu = False
 
-    while qu_erros < 2 and len(erro_cdi) > 0:
+    while len(erro_cdi) >= 0 or not tempoesgotado:
 
-        erro = input().lower()
+        tempos = int(30 - qu_erros*5 + qu_acertos*10)
         tempo_final = time.time()
-        tempo = (tempo_final - tempo_inicial)
-
-        if (30 - qu_erros*5 + qu_acertos*10) < tempo:
+        tempo_total_cdi = float(tempo_final - tempo_inicial)
+        cronometro = tempos - tempo_total_cdi
+        cronometrocoisado = str(cronometro)
+        if tempos < tempo_total_cdi:
             tempoesgotado = True 
+            limptl()
             break
+        erro = input().lower()
+        sys.stdout.write('\x1b[1A')
+        sys.stdout.write('\x1b[2K')
+        tempos = int(30 - qu_erros*5 + qu_acertos*10)
+        tempo_final = time.time()
+        tempo_total_cdi = int(tempo_final - tempo_inicial)
+        if tempos < tempo_total_cdi:
+            tempoesgotado = True 
+            limptl()
+            break
+        
         if erro not in erro_cdi:
             qu_erros+=1
-            print(f'{Fore.RED+'='*45}[ {Back.RED}Você errou!{Back.RESET} Possui apenas mais uma tentativa. ]{Fore.RED+'='*45}')
+            tempos = int(30 - qu_erros*5 + qu_acertos*10)
+            tempo_final = time.time()
+            tempo_total_cdi = int(tempo_final - tempo_inicial)
+
+            cronometro = tempos - tempo_total_cdi
+            sys.stdout.write('\x1b[1A')
+            sys.stdout.write('\x1b[2K')
+            print(f'{Fore.RED+'='*45}[ {Back.RED}Você errou!{Back.RESET} Possui apenas mais uma tentativa e você possue {cronometro} segundos. ]{Fore.RED+'='*45}')
         else:
             erro_cdi.remove(erro)
             if len(erro_cdi) >1:
-                print(f'{Fore.YELLOW+'='*47}[ {Back.YELLOW}Você acertou!{Back.RESET} Faltam apenas mais {len(erro_cdi)} erros! ]{Fore.YELLOW+'='*47}')
                 qu_acertos += 1
+                tempos = int(30 - qu_erros*5 + qu_acertos*10)
+                tempo_final = time.time()
+                tempo_total_cdi = int(tempo_final - tempo_inicial)
+                cronometro = tempos - tempo_total_cdi
+                sys.stdout.write('\x1b[1A')
+                sys.stdout.write('\x1b[2K')
+                print(f'{Fore.YELLOW+'='*47}[ {Back.YELLOW}Você acertou!{Back.RESET} Faltam apenas mais {len(erro_cdi)} erros e você possue {cronometro} segundos! ]{Fore.YELLOW+'='*47}')
             elif len(erro_cdi)<= 0:
-                pass
+                break
             else:
-                print(f'{Fore.YELLOW+'='*48}[ {Back.YELLOW}Você acertou!{Back.RESET} Falta apenas mais {len(erro_cdi)} erro! ]{Fore.YELLOW+'='*48}')
-                qu_acertos += 1 
+                qu_acertos += 1
+                tempos = int(30 - qu_erros*5 + qu_acertos*10)
+                tempo_final = time.time()
+                tempo_total_cdi = int(tempo_final - tempo_inicial)
+                cronometro = tempos - tempo_total_cdi
+                sys.stdout.write('\x1b[1A')
+                sys.stdout.write('\x1b[2K')
+                print(f'{Fore.YELLOW+'='*48}[ {Back.YELLOW}Você acertou!{Back.RESET} Falta apenas mais {len(erro_cdi)} erro e você possue {cronometro} segundos! ]{Fore.YELLOW+'='*48}')
     
-    if qu_erros >= 2:
-        print(f'{Fore.RED+'='*40}[ {Back.RED}Você Perdeu!{Back.RESET} Suas tentativas acabaram, tente novamente. ]{Fore.RED+'='*40}')
-        time.sleep(2)
-    elif tempoesgotado == True:
+    #if qu_erros >= 2:
+        #print(f'{Fore.RED+'='*40}[ {Back.RED}Você Perdeu!{Back.RESET} Suas tentativas acabaram, tente novamente. ]{Fore.RED+'='*40}')
+        #time.sleep(2)
+    if tempoesgotado == True:
         print(f'{Fore.RED+'='*40}[ {Back.RED}Você Perdeu!{Back.RESET} Seu tempo acabou e você não encontrou todos os erros. Tente novamente ]{Fore.RED+'='*40}')
         time.sleep(3)
     else:
-        print(f'{Fore.GREEN+'='*50}[ {Back.GREEN}Você Ganhou! Achou todas as palavras incorretas no tempo. ]{Fore.GREEN+'='*50}')
+        print(f'{Fore.GREEN+'='*50}[ {Back.GREEN}Você Ganhou!!{Back.RESET} Achou todos os erros em {(cronometrocoisado[:5])} segundos! ]{Fore.GREEN+'='*50}')
         time.sleep(3)
         venceu = True
-    return venceu 
+    return venceu, cronometrocoisado
+
+#    while qu_erros < 2 and len(erro_cdi) > 0:
+#
+#        erro = input().lower()
+#        tempo_final = time.time()
+# #       tempo = (tempo_final - tempo_inicial)
+#
+# #       if (30 - qu_erros*5 + qu_acertos*10) < tempo:
+#            tempoesgotado = True 
+ #           break
+#        if erro not in erro_cdi:
+ #           qu_erros+=1
+ #           print(f'{Fore.RED+'='*45}[ {Back.RED}Você errou!{Back.RESET} Possui apenas mais uma tentativa. ]{Fore.RED+'='*45}')
+#        else:
+ #           erro_cdi.remove(erro)
+ #           if len(erro_cdi) >1:
+ #               print(f'{Fore.YELLOW+'='*47}[ {Back.YELLOW}Você acertou!{Back.RESET} Faltam apenas mais {len(erro_cdi)} erros! ]{Fore.YELLOW+'='*47}')
+ #               qu_acertos += 1
+ #           elif len(erro_cdi)<= 0:
+ #               pass
+ #           else:
+ #               print(f'{Fore.YELLOW+'='*48}[ {Back.YELLOW}Você acertou!{Back.RESET} Falta apenas mais {len(erro_cdi)} erro! ]{Fore.YELLOW+'='*48}')
+ #               qu_acertos += 1 
+ #   
+ #   if qu_erros >= 2:
+ #       print(f'{Fore.RED+'='*40}[ {Back.RED}Você Perdeu!{Back.RESET} Suas tentativas acabaram, tente novamente. ]{Fore.RED+'='*40}')
+ #       time.sleep(2)
+ #   elif tempoesgotado == True:
+ #       print(f'{Fore.RED+'='*40}[ {Back.RED}Você Perdeu!{Back.RESET} Seu tempo acabou e você não encontrou todos os erros. Tente novamente ]{Fore.RED+'='*40}')
+ #       time.sleep(3)
+ #   else:
+ #       print(f'{Fore.GREEN+'='*50}[ {Back.GREEN}Você Ganhou! Achou todas as palavras incorretas no tempo. ]{Fore.GREEN+'='*50}')
+ #       time.sleep(3)
+ #       venceu = True
+ #   return venceu 

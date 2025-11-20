@@ -1,6 +1,7 @@
 #Importação de módulos
+import sys
 import time
-from fun_limpartela import limptl
+from utils import limptl
 from colorama import *
 
 #Função tema criptomoeda
@@ -40,29 +41,40 @@ def criptomoeda():
             🔹 Riscos: baixa volatilidade, possibilidade de perda parcial, falhas de segurança e falta de regulação.
             🔹 Investimento: via exchanges físicas, fundos ou ETEs de Bitcoin.
             👉 Regra de ouro: investir só uma parte do patrimônio, sem foco em diversificação.
+          
           ''')
     erro_cripto = ['centralizadas','planilhas','não','solana','aparente','livre','baixa','parcial','físicas','etes','bitcoin','sem']
     venceu = False
     qu_erros = 0
     while qu_erros < 2 and len(erro_cripto) > 0:
         erro = input().lower()
+        sys.stdout.write('\x1b[1A')
+        sys.stdout.write('\x1b[2K')
         tempo_final = time.time()
         tempo_total_cripto = str(tempo_final - tempo_inicial)
         if erro not in erro_cripto:
             qu_erros+=1
+            sys.stdout.write('\x1b[1A')
+            sys.stdout.write('\x1b[2K')
             print(f'{Fore.RED+'='*45}[ {Back.RED}Você errou!{Back.RESET} Possui apenas mais uma tentativa. ]{Fore.RED+'='*45}')
         else:
             erro_cripto.remove(erro)
             if len(erro_cripto) >1:
+                sys.stdout.write('\x1b[1A')
+                sys.stdout.write('\x1b[2K')
                 print(f'{Fore.YELLOW+'='*47}[ {Back.YELLOW}Você acertou!{Back.RESET} Faltam apenas mais {len(erro_cripto)} erros! ]{Fore.YELLOW+'='*47}')
             elif len(erro_cripto)<= 0:
                 pass
             else:
+                sys.stdout.write('\x1b[1A')
+                sys.stdout.write('\x1b[2K')
                 print(f'{Fore.YELLOW+'='*48}[ {Back.YELLOW}Você acertou!{Back.RESET} Falta apenas mais {len(erro_cripto)} erro! ]{Fore.YELLOW+'='*48}')
     if qu_erros >= 2:
+        limptl()
         print(f'{Fore.RED+'='*40}[ {Back.RED}Você Perdeu!{Back.RESET} Suas tentativas acabaram, tente novamente. ]{Fore.RED+'='*40}')
         time.sleep(2)
     else:
+        limptl()
         print(f'{Fore.GREEN+'='*50}[ {Back.GREEN}Você Ganhou!!{Back.RESET} Achou todos os erros em {(tempo_total_cripto[:4])} segundos! ]{Fore.GREEN+'='*50}')
         time.sleep(3)
         venceu = True
@@ -81,9 +93,9 @@ def cripto_hard():
     time.sleep(1)
     limptl()
 
-    print(Fore.RED+'='*52+'[', end='')
+    print(Fore.RED+'='*80+'[', end='')
     print(Fore.WHITE+Back.RED+' Texto  Falso ', end='')      
-    print(Fore.RED+']'+'='*52)
+    print(Fore.RED+']'+'='*80)
     print('''
             Criptomoedas são moedas digitais descentralizados, registradas em Blockdata, que dispensam bancos e governos como intermediários.
             A mais famosa é o Cardano, mas há muitas outras, como Ethereum e Solana.
@@ -95,6 +107,7 @@ def cripto_hard():
            🔹 Investimento: É impossível investir de forma direta via exchanges, ou indiretamente por meio de fundos e ETFs de criptoativos.
            👉 Regra de ouro: Invista todo seu patrimônio, de preferência aquela destinada a ativos de menor risco, mantendo uma carteira concentrada com investimentos
                mais instáveis para desequilibrar o portfólio.
+          
           ''')
     
     erro_cripto = ['blockdata', 'cardano', 'privado', 'perigo', 'físicos', 'unificadas', 'fixas', 'pouco', 'muito', 'impossível', 'todo', 'menor', 'concentrada', 'instáveis', 'desequilibrar']
@@ -115,6 +128,8 @@ def cripto_hard():
             limptl()
             break
         erro = input().lower()
+        sys.stdout.write('\x1b[1A')
+        sys.stdout.write('\x1b[2K')
         tempos = int(30 - qu_erros*5 + qu_acertos*10)
         tempo_final = time.time()
         tempo_total_cripto = int(tempo_final - tempo_inicial)
@@ -130,6 +145,8 @@ def cripto_hard():
             tempo_total_cripto = int(tempo_final - tempo_inicial)
 
             cronometro = tempos - tempo_total_cripto
+            sys.stdout.write('\x1b[1A')
+            sys.stdout.write('\x1b[2K')
             print(f'{Fore.RED+'='*45}[ {Back.RED}Você errou!{Back.RESET} Possui apenas mais uma tentativa e você possue {cronometro} segundos. ]{Fore.RED+'='*45}')
         else:
             erro_cripto.remove(erro)
@@ -139,6 +156,8 @@ def cripto_hard():
                 tempo_final = time.time()
                 tempo_total_cripto = int(tempo_final - tempo_inicial)
                 cronometro = tempos - tempo_total_cripto
+                sys.stdout.write('\x1b[1A')
+                sys.stdout.write('\x1b[2K')
                 print(f'{Fore.YELLOW+'='*47}[ {Back.YELLOW}Você acertou!{Back.RESET} Faltam apenas mais {len(erro_cripto)} erros e você possue {cronometro} segundos! ]{Fore.YELLOW+'='*47}')
             elif len(erro_cripto)<= 0:
                 break
@@ -148,6 +167,8 @@ def cripto_hard():
                 tempo_final = time.time()
                 tempo_total_cripto = int(tempo_final - tempo_inicial)
                 cronometro = tempos - tempo_total_cripto
+                sys.stdout.write('\x1b[1A')
+                sys.stdout.write('\x1b[2K')
                 print(f'{Fore.YELLOW+'='*48}[ {Back.YELLOW}Você acertou!{Back.RESET} Falta apenas mais {len(erro_cripto)} erro e você possue {cronometro} segundos! ]{Fore.YELLOW+'='*48}')
     
     #if qu_erros >= 2:
