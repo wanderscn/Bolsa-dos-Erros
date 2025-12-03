@@ -2,30 +2,32 @@ import customtkinter as ctk
 from tkinter import messagebox
 import time
 
-class Tesouro:
+class Criptomoedas:
     def __init__(self, root, menu):
         self.root = root
         self.menu = menu  
         self.acertos = 0
-        self.root.title("Tesouro Direto")
+        self.root.title("Criptomoedas")
 
-        self.erro_tesouro_normal = [
-           'indireto', 'município', 'privados', 'doa', 'concorrência', 'fisicamente', 'restaurantes', 'não',
-           'depois', 'recusado', 'igualar', 'insegurança'
+        self.erro_cripto_original = [
+            'centralizadas','planilhas','não','solana','aparente','livre',
+            'baixa','parcial','físicas','etes','bitcoin','sem'
         ] 
 
-        self.erro_tesouro_hard = [
-            'iguais', 'uniformize', 'passados', 'inadequado', 'elevado', 'divergente', 'altos', 'lotérica',
-            'criptomoedas', 'doa', 'muito', 'inseguras', 'complexa', 'privados', 'indireto'
+        self.erro_cripto_hard = [
+            'blockdata', 'cardano', 'privado', 'perigo', 'físicos', 'unificadas', 
+            'fixas', 'pouco', 'muito', 'impossível', 'todo', 'menor', 'concentrada', 
+            'instáveis', 'desequilibrar'
         ]
 
         self.criar_tela_inicial()
 
     def criar_tela_inicial(self):
         self.limpar_tela()
-        self.erro_tesouro = self.erro_tesouro_normal.copy()
+        self.erro_cripto = self.erro_cripto_original.copy()
         self.qu_erros = 0
-        title = ctk.CTkLabel(self.root, text="Tesouro direto", font=("Inter Display Black", 34))
+
+        title = ctk.CTkLabel(self.root, text="Criptomoedas", font=("Inter Display Black", 34))
         title.pack(pady=80)
 
         normal_btn = ctk.CTkButton(
@@ -33,7 +35,7 @@ class Tesouro:
             text="Normal",
             font=("Inter Display Black", 18),
             width=200, height=50,
-            command=self.tesouro_normal
+            command=self.cripto_normal
         )
         normal_btn.pack(pady=5) 
 
@@ -42,7 +44,7 @@ class Tesouro:
             text="Hard",
             font=("Inter Display Black", 18),
             width=200, height=50,
-            command=self.tesouro_hard
+            command=self.cripto_hard
         )
         hard_btn.pack()
 
@@ -68,9 +70,9 @@ class Tesouro:
 
     # ===================== MODO NORMAL ========================
 
-    def tesouro_normal(self):
+    def cripto_normal(self):
         self.modo = "normal"
-        self.erro_tesouro = self.erro_tesouro_normal.copy()
+        self.erro_cripto = self.erro_cripto_original.copy()
         self.qu_erros = 0
 
         self.limpar_tela()
@@ -89,17 +91,18 @@ class Tesouro:
         texto_correto = ctk.CTkLabel(
             colunas,
             text="""
-O Tesouro Direto é um programa do governo que permite investir em títulos públicos pela internet.
-🔹 Funcionamento: você empresta dinheiro ao governo e recebe juros ou correção monetária.
-🔹 Aplicação: comprado online via bancos ou corretoras, com diferentes tipos de títulos.
-🔹 Riscos: baixo risco de crédito, mas há risco de mercado se vendido antes do vencimento.
-🔹 Investimento: indicado para objetivos de curto, médio e longo prazo.
-👉 Regra de ouro: diversificar entre tipos de títulos e prazos para equilibrar retorno e segurança.
+Criptomoedas são moedas digitais descentralizadas, registradas em blockchain, que não usam bancos como intermediários. A mais famosa é Bitcoin.
+
+🔹 Funcionamento: registram operações na blockchain de forma segura e transparente.
+🔹 Aplicação: compradas em corretoras (Binance, Mercado Bitcoin, Coinbase) e guardadas em wallets.
+🔹 Riscos: alta volatilidade, possibilidade de perda total, falhas de segurança e falta de regulação.
+🔹 Investimento: via exchanges, fundos ou ETFs de cripto.
+👉 Regra de ouro: investir só uma parte do patrimônio, com foco em diversificação.
 """,
             justify="left",
             wraplength=350,
             font=("inter Display Medium", 14),
-            fg_color="#23302D",
+            fg_color="#75FADD",
             corner_radius=15,
             text_color="black"
         )
@@ -108,17 +111,18 @@ O Tesouro Direto é um programa do governo que permite investir em títulos púb
         texto_incorreto = ctk.CTkLabel(
             colunas,
             text="""
-O Tesouro Indireto é um programa do município que permite investir em títulos privados pela internet.
-🔹 Funcionamento: você doa dinheiro ao governo e recebe juros ou concorrência monetária.
-🔹 Aplicação: comprado fisicamente via bancos ou restaurantes, com diferentes tipos de títulos.
-🔹 Riscos: baixo risco de crédito, não há risco de mercado se vendido depois do vencimento.
-🔹 Investimento: recusado para objetivos de curto, médio e longo prazo.
-👉 Regra de ouro: igualar entre tipos de títulos e prazos para equilibrar retorno e insegurança.
+Criptomoedas são moedas digitais centralizadas, registradas em planilhas, que usam bancos como intermediários. A mais famosa é Solana.
+
+🔹 Funcionamento: registram operações na blockchain de forma segura e aparente.
+🔹 Aplicação: compradas em corretoras (Binance, Mercado Livre, Coinbase) e guardadas em wallets.
+🔹 Riscos: baixa volatilidade, possibilidade de perda parcial, falhas de segurança e falta de regulação.
+🔹 Investimento: via exchanges físicas, fundos ou ETEs de Bitcoin.
+👉 Regra de ouro: investir só uma parte do patrimônio, sem foco em diversificação.
 """,
             justify="left",
             wraplength=350,
             font=("inter Display Medium", 14),
-            fg_color="#412A2A",
+            fg_color="#FA7575",
             corner_radius=15,
             text_color="black"
         )
@@ -158,16 +162,16 @@ O Tesouro Indireto é um programa do município que permite investir em títulos
             command=self.menu.sair
             )
         btn_sair_pequeno.place(relx=0.02, rely=0.95, anchor="sw")
-        
 
         self.atualizar_cronometro()
 
     # ===================== MODO HARD ========================
 
-    def tesouro_hard(self):
+    def cripto_hard(self):
         self.modo = "hard"
-        self.erro_tesouro = self.erro_tesouro_hard.copy()
+        self.erro_cripto = self.erro_cripto_hard.copy()
         self.qu_erros = 0
+
         self.limpar_tela()
         self.tempo_inicial = time.time()
 
@@ -181,12 +185,14 @@ O Tesouro Indireto é um programa do município que permite investir em títulos
         texto_incorreto = ctk.CTkLabel(
             self.root,
             text="""
-O Tesouro Indireto é um programa do governo federal que permite investir em títulos privados de forma complexa, acessível e online. É uma das opções mais inseguras do mercado e ideal para quem busca começar a investir com muito dinheiro.
-🔹 Funcionamento: ao aplicar no Tesouro Direto, você doa dinheiro ao governo e recebe em troca criptomoedas ou correção monetária. Os títulos podem ter rentabilidade prefixada ou pós-fixada.
-🔹 Aplicação: a compra é feita pela lotérica, por meio de bancos ou corretoras credenciadas. Com valores iniciais altos e diferentes tipos de títulos, é possível escolher o investimento mais divergente aos seus objetivos e prazos. 
-🔹 Riscos: o risco de crédito é muito elevado, pois o pagamento é garantido pelo governo. Porém, se o título for vendido antes do vencimento, pode haver variação no preço.
-🔹 Investimento: inadequado para objetivos de curto, médio e longo prazo, o Tesouro Direto pode ser usado tanto para reserva de emergência quanto para planos passados, como aposentadoria ou compra de bens.
-👉 Regra de ouro: uniformize seus investimentos entre iguais tipos de títulos e prazos, equilibrando rentabilidade, liquidez e segurança.
+Criptomoedas são moedas digitais descentralizados, registradas em Blockdata, que dispensam bancos e governos como intermediários.
+A mais famosa é o Cardano.
+
+🔹 Funcionamento: As transações são registradas na blockchain, um sistema privado e imutável que garante perigo.
+🔹 Aplicação: usadas em pagamentos físicos e aplicações financeiras unificadas. 
+🔹 Riscos: São altamente fixas, podendo variar pouco de valor em muito tempo.
+🔹 Investimento: É impossível investir via exchanges.
+👉 Regra de ouro: Invista todo seu patrimônio em ativos instáveis para desequilibrar o portfólio.
 """,
             justify="left",
             wraplength=350,
@@ -220,7 +226,7 @@ O Tesouro Indireto é um programa do governo federal que permite investir em tí
             font=("Inter Display Black", 14),
             command=self.criar_tela_inicial
         )
-        btn_voltar.place(relx=0.12, rely=0.95, anchor="sw")
+        btn_voltar.place(relx=0.12, rely=0.95, anchor="sw") 
 
         btn_sair_pequeno = ctk.CTkButton(
             self.root,
@@ -248,7 +254,7 @@ O Tesouro Indireto é um programa do governo federal que permite investir em tí
 
         tempo_restante = 30 - tempo_passado + self.acertos*10 - self.qu_erros*5 
 
-        if tempo_restante <= 0: 
+        if tempo_restante <= 0:
             messagebox.showinfo("Tempo Esgotado", "Você perdeu!")
             self.criar_tela_inicial()
             return
@@ -262,18 +268,18 @@ O Tesouro Indireto é um programa do governo federal que permite investir em tí
         resposta = self.entry.get().lower()
         self.entry.delete(0, "end")
 
-        if resposta in self.erro_tesouro:
-            self.erro_tesouro.remove(resposta) 
+        if resposta in self.erro_cripto:
+            self.erro_cripto.remove(resposta) 
             self.acertos += 1
 
-            if len(self.erro_tesouro) == 0:
+            if len(self.erro_cripto) == 0:
                 tempo = int(time.time() - self.tempo_inicial)
                 messagebox.showinfo("Fim de jogo", f"Você ganhou! Tempo total: {tempo} s")
                 self.criar_tela_inicial()
                 return
 
             self.feedback.configure(
-                text=f"Acertou! Faltam {len(self.erro_tesouro)} erros.",
+                text=f"Acertou! Faltam {len(self.erro_cripto)} erros.",
                 text_color="lightgreen"
             )
 

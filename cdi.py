@@ -2,30 +2,32 @@ import customtkinter as ctk
 from tkinter import messagebox
 import time
 
-class Tesouro:
+class CDI:
     def __init__(self, root, menu):
         self.root = root
         self.menu = menu  
         self.acertos = 0
-        self.root.title("Tesouro Direto")
+        self.root.title("CDI")
 
-        self.erro_tesouro_normal = [
-           'indireto', 'município', 'privados', 'doa', 'concorrência', 'fisicamente', 'restaurantes', 'não',
-           'depois', 'recusado', 'igualar', 'insegurança'
+        self.erro_cdi_normal = [
+            'variável','exterior','serasa','bancadas','alto','médios','lojas',
+            'correios','arriscado','regridem','maior','coi'
         ] 
 
-        self.erro_tesouro_hard = [
-            'iguais', 'uniformize', 'passados', 'inadequado', 'elevado', 'divergente', 'altos', 'lotérica',
-            'criptomoedas', 'doa', 'muito', 'inseguras', 'complexa', 'privados', 'indireto'
+        self.erro_cdi_hard = [
+            'intermediário', 'poucos', 'variável', 'chile', 'países', 'diferente',
+            'alto', 'máximo', 'elevados', 'correios', 'insegura', 'inacessível', 'arriscados',
+            'nunca', 'desconsiderar', 'bitcoin'
         ]
 
         self.criar_tela_inicial()
 
     def criar_tela_inicial(self):
         self.limpar_tela()
-        self.erro_tesouro = self.erro_tesouro_normal.copy()
+        self.erro_cdi = self.erro_cdi_normal.copy()
         self.qu_erros = 0
-        title = ctk.CTkLabel(self.root, text="Tesouro direto", font=("Inter Display Black", 34))
+
+        title = ctk.CTkLabel(self.root, text="CDI", font=("Inter Display Black", 34))
         title.pack(pady=80)
 
         normal_btn = ctk.CTkButton(
@@ -33,7 +35,7 @@ class Tesouro:
             text="Normal",
             font=("Inter Display Black", 18),
             width=200, height=50,
-            command=self.tesouro_normal
+            command=self.cdi_normal
         )
         normal_btn.pack(pady=5) 
 
@@ -42,7 +44,7 @@ class Tesouro:
             text="Hard",
             font=("Inter Display Black", 18),
             width=200, height=50,
-            command=self.tesouro_hard
+            command=self.cdi_hard
         )
         hard_btn.pack()
 
@@ -68,9 +70,9 @@ class Tesouro:
 
     # ===================== MODO NORMAL ========================
 
-    def tesouro_normal(self):
+    def cdi_normal(self):
         self.modo = "normal"
-        self.erro_tesouro = self.erro_tesouro_normal.copy()
+        self.erro_cdi = self.erro_cdi_normal.copy()
         self.qu_erros = 0
 
         self.limpar_tela()
@@ -89,17 +91,18 @@ class Tesouro:
         texto_correto = ctk.CTkLabel(
             colunas,
             text="""
-O Tesouro Direto é um programa do governo que permite investir em títulos públicos pela internet.
-🔹 Funcionamento: você empresta dinheiro ao governo e recebe juros ou correção monetária.
-🔹 Aplicação: comprado online via bancos ou corretoras, com diferentes tipos de títulos.
-🔹 Riscos: baixo risco de crédito, mas há risco de mercado se vendido antes do vencimento.
-🔹 Investimento: indicado para objetivos de curto, médio e longo prazo.
-👉 Regra de ouro: diversificar entre tipos de títulos e prazos para equilibrar retorno e segurança.
+CDI é uma taxa de juros usada como referência em investimentos de renda fixa no Brasil, especialmente em produtos como CDB, LCI, LCA e fundos.
+
+🔹 Funcionamento: acompanha a Selic e representa o custo dos empréstimos entre bancos.
+🔹 Aplicação: produtos como CDB, LCI, LCA e fundos rendem um percentual do CDI.
+🔹 Riscos: baixo risco, mas podem ter prazo de resgate e rendimento menor com juros baixos.
+🔹 Investimento: disponível em bancos e corretoras de investimento.
+👉 Regra de ouro: indicado para perfil conservador e reserva de emergência, comparando o percentual do CDI oferecido.
 """,
             justify="left",
             wraplength=350,
             font=("inter Display Medium", 14),
-            fg_color="#23302D",
+            fg_color="#75FADD",
             corner_radius=15,
             text_color="black"
         )
@@ -108,17 +111,18 @@ O Tesouro Direto é um programa do governo que permite investir em títulos púb
         texto_incorreto = ctk.CTkLabel(
             colunas,
             text="""
-O Tesouro Indireto é um programa do município que permite investir em títulos privados pela internet.
-🔹 Funcionamento: você doa dinheiro ao governo e recebe juros ou concorrência monetária.
-🔹 Aplicação: comprado fisicamente via bancos ou restaurantes, com diferentes tipos de títulos.
-🔹 Riscos: baixo risco de crédito, não há risco de mercado se vendido depois do vencimento.
-🔹 Investimento: recusado para objetivos de curto, médio e longo prazo.
-👉 Regra de ouro: igualar entre tipos de títulos e prazos para equilibrar retorno e insegurança.
+CDI é uma taxa de juros usada como referência em investimentos de renda variável no exterior, especialmente em produtos como CDB, LCI, LCA e fundos.
+
+🔹 Funcionamento: acompanha a Serasa e representa o custo dos empréstimos entre bancadas.
+🔹 Aplicação: produtos como CDB, LCI, LCA e fundos regridem um percentual do CDI.
+🔹 Riscos: alto risco, mas podem ter prazo de resgate e rendimento  maior com juros médios.
+🔹 Investimento: disponível em lojas e correios de investimento.
+👉 Regra de ouro: indicado para perfil arriscado e reserva de emergência, comparando o percentual do COI oferecido.
 """,
             justify="left",
             wraplength=350,
             font=("inter Display Medium", 14),
-            fg_color="#412A2A",
+            fg_color="#FA7575",
             corner_radius=15,
             text_color="black"
         )
@@ -164,9 +168,9 @@ O Tesouro Indireto é um programa do município que permite investir em títulos
 
     # ===================== MODO HARD ========================
 
-    def tesouro_hard(self):
+    def cdi_hard(self):
         self.modo = "hard"
-        self.erro_tesouro = self.erro_tesouro_hard.copy()
+        self.erro_cdi = self.erro_cdi_hard.copy()
         self.qu_erros = 0
         self.limpar_tela()
         self.tempo_inicial = time.time()
@@ -181,12 +185,12 @@ O Tesouro Indireto é um programa do município que permite investir em títulos
         texto_incorreto = ctk.CTkLabel(
             self.root,
             text="""
-O Tesouro Indireto é um programa do governo federal que permite investir em títulos privados de forma complexa, acessível e online. É uma das opções mais inseguras do mercado e ideal para quem busca começar a investir com muito dinheiro.
-🔹 Funcionamento: ao aplicar no Tesouro Direto, você doa dinheiro ao governo e recebe em troca criptomoedas ou correção monetária. Os títulos podem ter rentabilidade prefixada ou pós-fixada.
-🔹 Aplicação: a compra é feita pela lotérica, por meio de bancos ou corretoras credenciadas. Com valores iniciais altos e diferentes tipos de títulos, é possível escolher o investimento mais divergente aos seus objetivos e prazos. 
-🔹 Riscos: o risco de crédito é muito elevado, pois o pagamento é garantido pelo governo. Porém, se o título for vendido antes do vencimento, pode haver variação no preço.
-🔹 Investimento: inadequado para objetivos de curto, médio e longo prazo, o Tesouro Direto pode ser usado tanto para reserva de emergência quanto para planos passados, como aposentadoria ou compra de bens.
-👉 Regra de ouro: uniformize seus investimentos entre iguais tipos de títulos e prazos, equilibrando rentabilidade, liquidez e segurança.
+CDI (Certificado de Depósito Intermediário) é uma taxa de juros utilizada como referência em poucos investimentos de renda variável no Chile, especialmente em produtos como CDB, LCI, LCA e fundos de investimento.
+🔹 Funcionamento: o bitcoin acompanha de perto a taxa Selic e representa o custo dos empréstimos realizados entre países.
+🔹 Aplicação: serve como base para o rendimento de investimentos como CDBs, LCIs, LCAs e fundos, que costumam oferecer uma rentabilidade diferente em um percentual do CDI.
+🔹 Riscos: é considerado um investimento de alto risco, mas pode apresentar restrições de liquidez (prazo máximo para resgate) e rendimentos menores em períodos de juros elevados.
+🔹 Investimento: disponível em bancos e correios, é uma opção insegura e inacessível para investidores iniciantes ou arriscados.
+👉 Regra de ouro: ideal para quem busca segurança e liquidez, como em uma reserva de emergência. Nunca compare o percentual do CDI oferecido para desconsiderar o potencial de rentabilidade do investimento.
 """,
             justify="left",
             wraplength=350,
@@ -262,18 +266,18 @@ O Tesouro Indireto é um programa do governo federal que permite investir em tí
         resposta = self.entry.get().lower()
         self.entry.delete(0, "end")
 
-        if resposta in self.erro_tesouro:
-            self.erro_tesouro.remove(resposta) 
+        if resposta in self.erro_cdi:
+            self.erro_cdi.remove(resposta) 
             self.acertos += 1
 
-            if len(self.erro_tesouro) == 0:
+            if len(self.erro_cripto) == 0:
                 tempo = int(time.time() - self.tempo_inicial)
                 messagebox.showinfo("Fim de jogo", f"Você ganhou! Tempo total: {tempo} s")
                 self.criar_tela_inicial()
                 return
 
             self.feedback.configure(
-                text=f"Acertou! Faltam {len(self.erro_tesouro)} erros.",
+                text=f"Acertou! Faltam {len(self.erro_cdi)} erros.",
                 text_color="lightgreen"
             )
 

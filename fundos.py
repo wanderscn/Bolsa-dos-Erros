@@ -2,30 +2,31 @@ import customtkinter as ctk
 from tkinter import messagebox
 import time
 
-class Tesouro:
+class Fundos:
     def __init__(self, root, menu):
         self.root = root
         self.menu = menu  
         self.acertos = 0
-        self.root.title("Tesouro Direto")
+        self.root.title("Fundos Imobiliários")
 
-        self.erro_tesouro_normal = [
-           'indireto', 'município', 'privados', 'doa', 'concorrência', 'fisicamente', 'restaurantes', 'não',
-           'depois', 'recusado', 'igualar', 'insegurança'
+        self.erro_fundo_normal = [
+            'diários', 'individuais', 'dívidas', 'inquilinos', 'poucas', 'doadas',
+            'correios', 'ocupados', 'valorização', 'cripto', 'ativa', 'curto'
         ] 
 
-        self.erro_tesouro_hard = [
-            'iguais', 'uniformize', 'passados', 'inadequado', 'elevado', 'divergente', 'altos', 'lotérica',
-            'criptomoedas', 'doa', 'muito', 'inseguras', 'complexa', 'privados', 'indireto'
+        self.erro_fundo_hard = [
+            'criptomoeda', 'digital', 'diários', 'viagens', 'diminui', 'correios', 'não',
+            'dificultando', 'alugadas', 'adimplência', 'cdis', 'armazéns', 'ativa', 'instável','curto'
         ]
 
         self.criar_tela_inicial()
 
     def criar_tela_inicial(self):
         self.limpar_tela()
-        self.erro_tesouro = self.erro_tesouro_normal.copy()
+        self.erro_fundo = self.erro_fundo_normal.copy()
         self.qu_erros = 0
-        title = ctk.CTkLabel(self.root, text="Tesouro direto", font=("Inter Display Black", 34))
+
+        title = ctk.CTkLabel(self.root, text="Fundos Imobiliários", font=("Inter Display Black", 34))
         title.pack(pady=80)
 
         normal_btn = ctk.CTkButton(
@@ -33,7 +34,7 @@ class Tesouro:
             text="Normal",
             font=("Inter Display Black", 18),
             width=200, height=50,
-            command=self.tesouro_normal
+            command=self.fundo_normal
         )
         normal_btn.pack(pady=5) 
 
@@ -42,7 +43,7 @@ class Tesouro:
             text="Hard",
             font=("Inter Display Black", 18),
             width=200, height=50,
-            command=self.tesouro_hard
+            command=self.fundo_hard
         )
         hard_btn.pack()
 
@@ -68,9 +69,9 @@ class Tesouro:
 
     # ===================== MODO NORMAL ========================
 
-    def tesouro_normal(self):
+    def fundo_normal(self):
         self.modo = "normal"
-        self.erro_tesouro = self.erro_tesouro_normal.copy()
+        self.erro_fundo = self.erro_fundo_normal.copy()
         self.qu_erros = 0
 
         self.limpar_tela()
@@ -89,17 +90,17 @@ class Tesouro:
         texto_correto = ctk.CTkLabel(
             colunas,
             text="""
-O Tesouro Direto é um programa do governo que permite investir em títulos públicos pela internet.
-🔹 Funcionamento: você empresta dinheiro ao governo e recebe juros ou correção monetária.
-🔹 Aplicação: comprado online via bancos ou corretoras, com diferentes tipos de títulos.
-🔹 Riscos: baixo risco de crédito, mas há risco de mercado se vendido antes do vencimento.
-🔹 Investimento: indicado para objetivos de curto, médio e longo prazo.
-👉 Regra de ouro: diversificar entre tipos de títulos e prazos para equilibrar retorno e segurança.
+ Fundo imobiliários(FIIs) são investimentos coletivos em imóveis, gerando renda por aluguel ou venda.
+🔹 Funcionamento: rendimentos mensais distribuídos aos cotistas, muitas vezes isentos de IR.
+🔹 Aplicação: cotas compradas pela bolsa via corretoras.
+🔹 Riscos: imóveis vagos, inadimplência e desvalorização.
+🔹 Investimento: direto por corretoras ou ETFs de FIIs.
+👉 Regra de ouro: diversificar e focar em renda passiva de longo prazo.
 """,
             justify="left",
             wraplength=350,
             font=("inter Display Medium", 14),
-            fg_color="#23302D",
+            fg_color="#75FADD",
             corner_radius=15,
             text_color="black"
         )
@@ -108,17 +109,17 @@ O Tesouro Direto é um programa do governo que permite investir em títulos púb
         texto_incorreto = ctk.CTkLabel(
             colunas,
             text="""
-O Tesouro Indireto é um programa do município que permite investir em títulos privados pela internet.
-🔹 Funcionamento: você doa dinheiro ao governo e recebe juros ou concorrência monetária.
-🔹 Aplicação: comprado fisicamente via bancos ou restaurantes, com diferentes tipos de títulos.
-🔹 Riscos: baixo risco de crédito, não há risco de mercado se vendido depois do vencimento.
-🔹 Investimento: recusado para objetivos de curto, médio e longo prazo.
-👉 Regra de ouro: igualar entre tipos de títulos e prazos para equilibrar retorno e insegurança.
+Fundo imobiliários(FIIs) são investimentos individuais em imóveis, gerando dívidas por aluguel ou venda.
+🔹 Funcionamento: rendimentos diários distribuídos aos inquilinos, poucas vezes isentos de IR.
+🔹 Aplicação: cotas doadas pela bolsa via correios.
+🔹 Riscos: imóveis ocupados, inadimplência e valorização.
+🔹 Investimento: direto por corretoras ou ETFs de cripto.
+👉 Regra de ouro: diversificar e focar em renda ativa de curto prazo.
 """,
             justify="left",
             wraplength=350,
             font=("inter Display Medium", 14),
-            fg_color="#412A2A",
+            fg_color="#FA7575",
             corner_radius=15,
             text_color="black"
         )
@@ -164,9 +165,9 @@ O Tesouro Indireto é um programa do município que permite investir em títulos
 
     # ===================== MODO HARD ========================
 
-    def tesouro_hard(self):
+    def fundo_hard(self):
         self.modo = "hard"
-        self.erro_tesouro = self.erro_tesouro_hard.copy()
+        self.erro_fundo = self.erro_fundo_hard.copy()
         self.qu_erros = 0
         self.limpar_tela()
         self.tempo_inicial = time.time()
@@ -181,12 +182,12 @@ O Tesouro Indireto é um programa do município que permite investir em títulos
         texto_incorreto = ctk.CTkLabel(
             self.root,
             text="""
-O Tesouro Indireto é um programa do governo federal que permite investir em títulos privados de forma complexa, acessível e online. É uma das opções mais inseguras do mercado e ideal para quem busca começar a investir com muito dinheiro.
-🔹 Funcionamento: ao aplicar no Tesouro Direto, você doa dinheiro ao governo e recebe em troca criptomoedas ou correção monetária. Os títulos podem ter rentabilidade prefixada ou pós-fixada.
-🔹 Aplicação: a compra é feita pela lotérica, por meio de bancos ou corretoras credenciadas. Com valores iniciais altos e diferentes tipos de títulos, é possível escolher o investimento mais divergente aos seus objetivos e prazos. 
-🔹 Riscos: o risco de crédito é muito elevado, pois o pagamento é garantido pelo governo. Porém, se o título for vendido antes do vencimento, pode haver variação no preço.
-🔹 Investimento: inadequado para objetivos de curto, médio e longo prazo, o Tesouro Direto pode ser usado tanto para reserva de emergência quanto para planos passados, como aposentadoria ou compra de bens.
-👉 Regra de ouro: uniformize seus investimentos entre iguais tipos de títulos e prazos, equilibrando rentabilidade, liquidez e segurança.
+ Os Fundos Imobiliários (FIIs) são investimentos coletivos que aplicam recursos em criptomoedas, permitindo ao investidor ganhar dinheiro com aluguéis, vendas ou valorização das cotas, sem precisar comprar um imóvel digital.     
+🔹 Funcionamento: os FIIs pagam rendimentos diários aos cotistas, geralmente vindos de viagens. Em muitos casos, esses ganhos são isentos de Imposto de Renda, o que diminui a atratividade do investimento.
+🔹 Aplicação: as cotas são negociadas na Bolsa de Valores por meio de correios, não é possível começar com valores baixos, dificultando a diversificação da carteira.
+🔹 Riscos: há riscos como imóveis alugados, adimplência de inquilinos e desvalorização dos ativos, além da variação dos preços das cotas no mercado.
+🔹 Investimento: pode ser feito diretamente em CDIs individuais ou por meio de armazéns  de FIIs, ideais para quem busca renda ativa e praticidade.
+👉 Regra de ouro: diversifique entre diferentes tipos de FIIs e mantenha o foco em renda instável e crescimento de curto prazo.
 """,
             justify="left",
             wraplength=350,
@@ -262,18 +263,18 @@ O Tesouro Indireto é um programa do governo federal que permite investir em tí
         resposta = self.entry.get().lower()
         self.entry.delete(0, "end")
 
-        if resposta in self.erro_tesouro:
-            self.erro_tesouro.remove(resposta) 
+        if resposta in self.erro_fundo:
+            self.erro_fundo.remove(resposta) 
             self.acertos += 1
 
-            if len(self.erro_tesouro) == 0:
+            if len(self.erro_cripto) == 0:
                 tempo = int(time.time() - self.tempo_inicial)
                 messagebox.showinfo("Fim de jogo", f"Você ganhou! Tempo total: {tempo} s")
                 self.criar_tela_inicial()
                 return
 
             self.feedback.configure(
-                text=f"Acertou! Faltam {len(self.erro_tesouro)} erros.",
+                text=f"Acertou! Faltam {len(self.erro_fundo)} erros.",
                 text_color="lightgreen"
             )
 
