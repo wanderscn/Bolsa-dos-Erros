@@ -1,131 +1,105 @@
-#importação de modulosa
-from colorama import *
-from fun_limpartela import limptl
-from fun_cripto import criptomoeda
-from fun_fundos import fundos
-from fun_cdi import cdi
-from fun_tesouro import tesouro
-import time
+import customtkinter as ctk 
+from criptomoeda import Criptomoedas 
+from cdi import CDI
+from fundos import Fundos 
+from sobre import Sobre 
+from fun_tesouro import Tesouro
+import ctypes
 
-#função_menu_dev
-def dev_():
-    escolha = ''
-    while escolha !='0':
-         limptl()
-         print (f'{Fore.RED+'='*50}[{Back.RED} DEVs {Back.RESET}]{Fore.RED+'='*50}')
-         print (f'''                                        Os nossos desenvolvedores são:
-                    
-                                                   {Fore.YELLOW}Misael
-                                                 Wanderson
+class Menu:
+    def __init__(self, root):
+        self.root = root
+        self.root.title("Bolsa dos Erros")
+        self.root.geometry("900x650")
+        ctypes.windll.shell32.SetCurrentProcessExplicitAppUserModelID("bolsa_dos_erros")
+        self.root.iconbitmap('ChatGPT-Image-23-de-nov.-de-2025_-21_29_13.ico')
+        ctk.set_appearance_mode("Dark")
+        ctk.set_default_color_theme("green")
 
-                            {Fore.CYAN}Alunos de Bacharelado em Sistemas de Informação na UFRPE 25.2''')
-         print(f'''{Fore.RED+'='*50}[{Back.RED}        {Back.RESET}]{Fore.RED+'='*50}''')
-         print(f'''                   Escolha uma opção:
-            {Back.YELLOW}[0]{Back.RESET} {Fore.YELLOW}Sair{Fore.WHITE}
-                ''')
-         escolha = input()
-         if escolha ==1:
-            pass           
-    else:
-     menuinicial()
+        self.menu_inicial()  
 
-#Menu_Sobre
-def sobre():
-    escolha = ''
-    while escolha !='0':
-        limptl()
-        print (f'{Fore.CYAN+'='*50}[{Back.CYAN} Sobre {Back.RESET}]{Fore.CYAN+'='*50}')
-        print('''
-            Este é um GAME inspirado em o jogo dos 7 erros, focado em ensinar de forma lúdica o
-            básico dos mais famosos métodos de investimento.
-            São 2 textos, o primeiro com informações verídicas sobre um investimento,
-            o segundo, é um texto praticamente identico, mas com alguns erros que alteram o sentido da oração.
-            
-            Seu dever é encontrar e digitar todos os erros do segundo texto
-            e aprender os principais fatos sobre o mundo dos investimentos.
-              ''')
-        print(f'''{Fore.CYAN+'='*50}[{Back.CYAN}        {Back.RESET}]{Fore.CYAN+'='*50}''')
-        print(f'''                   Escolha uma opção:
-            {Back.YELLOW}[1]{Back.RESET} {Fore.YELLOW}Devs{Fore.WHITE}
-            {Back.YELLOW}[0]{Back.RESET} {Fore.YELLOW}Sair{Fore.WHITE}
-                ''')
-        escolha = input()
-        if escolha == '1': 
-            dev_()
-        else:
-            print('Esta opção não é válida.') 
-    else:
-     menu_bolsa()
+    def menu_inicial(self):
+        self.limpar_tela()
+        title = ctk.CTkLabel(self.root, text="Bem vindo à Bolsa dos Erros",
+                             font=("Inter Display Black", 34))
+        title.pack(pady=80)
 
-#Menu principal
-def menu_bolsa():
-    menuescolha = ''
-    init(autoreset=True)
-    op_cripto = (f'{Back.YELLOW}[1]{Back.RESET} {Fore.YELLOW}Criptomoedas{Fore.WHITE}')
-    op_fundos = (f'{Back.YELLOW}[2]{Back.RESET} {Fore.YELLOW}Fundos imobiliários{Fore.WHITE}')
-    op_tesouro = (f'{Back.YELLOW}[3]{Back.RESET} {Fore.YELLOW}Tesouro direto{Fore.WHITE}')
-    op_cdi = (f'{Back.YELLOW}[4]{Back.RESET} {Fore.YELLOW}CDI{Fore.WHITE}')
-    jogou_cripto = 0
-    while menuescolha != '0':
-        limptl()
-        print(Fore.BLUE+'='*50)
-        print(f'''                  Escolha o TEMA que deseja: 
-              
-                {op_cripto}
-                {op_fundos}
-                {op_tesouro}
-                {op_cdi}
-                {Back.YELLOW}[0]{Back.RESET} {Fore.YELLOW}Voltar para tela inicial''')
-        print(Fore.BLUE+'='*50)
-        print(Fore.RESET)
-        menuescolha = input()
-        if menuescolha == '1':
-            venceu = criptomoeda()
-            if venceu is True:
-                (jogou_cripto)+=1
-                if (jogou_cripto)>=1:
-                    op_cripto = (f'{Back.YELLOW}[1]{Back.RESET} {Fore.YELLOW}Criptomoedas{Fore.WHITE} {Back.GREEN}  {Back.RESET}')
-                else:
-                    op_cripto = (f'{Back.YELLOW}[1]{Back.RESET} {Fore.YELLOW}Criptomoedas{Fore.WHITE} {Back.RED}  {Back.RESET}')
-            else:
-                if (jogou_cripto)>=1:
-                    op_cripto = (f'{Back.YELLOW}[1]{Back.RESET} {Fore.YELLOW}Criptomoedas{Fore.WHITE} {Back.GREEN}  {Back.RESET}')
-                else:
-                     op_cripto = (f'{Back.YELLOW}[1]{Back.RESET} {Fore.YELLOW}Criptomoedas{Fore.WHITE} {Back.RED}  {Back.RESET}')
-        elif menuescolha=='2':
-            fundos()
-        elif menuescolha=='3':
-            tesouro()
-        elif menuescolha=='4':
-            cdi()
-        elif menuescolha != '0':
-            print('Esta opção não é válida.')
-        else:
-            menuinicial()
-#Função menu inicial
-def menuinicial():
-    menuescolha = ''
-    init(autoreset=True)
-    while menuescolha != '0':
-        limptl()
-        print(Fore.BLUE+'='*50)
-        print(f'''            Bem vindo ao {Fore.GREEN}{Back.GREEN}Bolsa dos erros!!{Back.RESET}{Fore.WHITE}
-              
-                {Back.YELLOW}[1]{Back.RESET} {Fore.YELLOW}Iniciar{Fore.WHITE}
-                {Back.YELLOW}[2]{Back.RESET} {Fore.YELLOW}Sobre{Fore.WHITE}
-                {Back.YELLOW}[0]{Back.RESET} {Fore.YELLOW}Sair{Fore.WHITE}
-                ''')
-        print(Fore.BLUE+'='*50)
-        print(Fore.RESET)
-        menuescolha = input()
-        if menuescolha == '1':
-            menu_bolsa()
-        elif menuescolha=='2':
-            sobre()
-        elif menuescolha != '0':
-            print('Esta opção não é válida.')
-            time.sleep(2)
-        else:
-            exit
-menuinicial()
+        btn_iniciar = ctk.CTkButton(self.root, text="Iniciar", font=("Inter Display Black", 18),
+                                    width=200, height=50, command=self.tela_escolha)
+        btn_iniciar.pack(pady=5)
 
+        btn_sobre = ctk.CTkButton(self.root, text="Sobre", font=("Inter Display Black", 18),
+                                  width=200, height=50, command=self.sobre)
+        btn_sobre.pack(pady=5)
+
+        btn_sair = ctk.CTkButton(self.root, text="Sair", font=("Inter Display Black", 18),
+                                 width=200, height=50, command=self.sair)
+        btn_sair.pack(pady=5)
+
+    def tela_escolha(self):
+        self.limpar_tela()
+        title = ctk.CTkLabel(self.root, text="Escolha o Tema",
+                             font=("Inter Display Black", 34))
+        title.pack(pady=80)
+  
+        btn_cdi = ctk.CTkButton(self.root, text="CDI", font=("Inter Display Black", 18),
+                                width=200, height=50, command=self.iniciar_cdi)
+        btn_cdi.pack(pady=5)
+
+        btn_cripto = ctk.CTkButton(self.root, text="Criptomoedas", font=("Inter Display Black", 18),
+                                   width=200, height=50, command=self.iniciar_criptomoedas)
+        btn_cripto.pack(pady=5)
+
+        btn_fundos = ctk.CTkButton(self.root, text="Fundos Imobiliários", font=("Inter Display Black", 18),
+                                   width=200, height=50, command=self.iniciar_fundos)
+        btn_fundos.pack(pady=5) 
+
+        btn_tesouro = ctk.CTkButton(self.root, text="Tesouro Direto", font=("Inter Display Black", 18),
+                                    width=200, height=50, command=self.iniciar_tesouro)
+        btn_tesouro.pack(pady=5)
+
+        btn_sair_pequeno = ctk.CTkButton(
+        self.root,
+        text="Sair",
+        width=80,
+        height=30,
+        font=("Inter Display Black", 14),
+        command=self.sair
+        )
+        btn_sair_pequeno.place(relx=0.02, rely=0.95, anchor="sw")
+
+        btn_voltar_pequeno = ctk.CTkButton(
+        self.root,
+        text="Voltar",
+        width=80,
+        height=30,
+        font=("Inter Display Black", 14),
+        command=self.menu_inicial
+        )
+        btn_voltar_pequeno.place(relx=0.12, rely=0.95, anchor="sw")
+
+    def iniciar_cdi(self):
+        CDI(self.root, self)
+
+    def iniciar_criptomoedas(self):
+        Criptomoedas(self.root, self)
+
+    def iniciar_tesouro(self):
+        Tesouro(self.root, self)
+
+    def iniciar_fundos(self):
+        Fundos(self.root, self)
+
+    def sobre(self):
+        Sobre(self.root, self)
+
+    def sair(self):
+        self.root.destroy()
+        
+    def limpar_tela(self):
+        for widget in self.root.winfo_children():
+            widget.destroy()
+
+root = ctk.CTk()
+app = Menu(root)
+root.mainloop()
