@@ -1,7 +1,7 @@
 # Vídeos de apresentação
 
 - Misael Marcos - V1 - https://youtu.be/xI_9sGDzuEM
-- Misael Marcos - V2 - https://www.youtube.com/watch?v=WGsXzJgJWLw
+- Misael Marcos - V2 - https://www.youtube.com/watch?v=WGsXzJgJWLw - Deu problema no youtube e tive que reenviar, mas foi postado primariamente dia 30 de novembro
 - Wanderson Mendonça - V1 - https://youtu.be/2nChqOwKTs0?si=fEuGbhBPNqeFyaIA
 - Wanderson Mendonça - V2 - https://youtu.be/BdNzTxTjQZw?si=6IFdhCXWGtu5bx_J
 
